@@ -1,16 +1,17 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Main from '../components/Main'
+import Navbar from '../components/Navbar'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>John - Portfolio</title>
+        <title>John | Full-stack Developer</title>
         <meta name="description" content="John's portfolio" />
-        <link rel="icon" href="/titleIcon.png" />
+        <link rel="icon" href="/titleLogo.jpg"/>
       </Head>
-      <h1>Hello World</h1>
+      <Navbar />
+      <Main />
     </div>
   )
 }
