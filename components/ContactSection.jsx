@@ -1,9 +1,18 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image'
 import profileImage from '../public/assets/profileImage.jpg'
+import {useState} from 'react'
 import {FaLinkedinIn, FaGithub, FaFacebook, FaInstagram, FaTwitter} from 'react-icons/fa'
+import Spinner from './Spinner'
+import { useEffect } from 'react'
 
 const ContactSection = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
+
   return (
     <div className="w-full lg:h-screen">
       <div className="mx-w-[1240px] m-auto px-4 sm:px-8 md:px-16  pt-16 w-full" >
@@ -12,7 +21,9 @@ const ContactSection = () => {
           <div className="col-span-3 lg:col-span-2 w-full h-full shadow-md shadow-gray-300 dark:shadow-gray-800 rounded-xl  px-4 py-4 sm:py-2 md:py-0">
             <div className="lg:p-4 h-full">
               <div className='rounded-2xl overflow-hidden'>
-                <Image src={profileImage}  alt='Profile image' className='hover:scale-105 ease-in duration-300' />
+                {
+                  isLoading ? <Spinner/> : <Image src={profileImage}  alt='Profile image' className='hover:scale-105 ease-in duration-300' />
+                }
               </div>
               <div>
                 <h2 className='py-2 font-[500]'>John Niyontwali</h2>
