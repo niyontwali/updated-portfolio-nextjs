@@ -2,7 +2,6 @@
 import Image from 'next/image'
 import profileImage from '../public/assets/profileImage.jpg'
 import {FaLinkedinIn, FaGithub, FaFacebook, FaInstagram, FaTwitter} from 'react-icons/fa'
-import Spinner from './Spinner'
 
 const ContactSection = () => {
 
