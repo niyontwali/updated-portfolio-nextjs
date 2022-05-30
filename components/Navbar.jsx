@@ -55,10 +55,10 @@ const Navbar = () => {
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         {
           theme !== 'dark' 
-            ? <Image src={logo} alt="my logo" width='80' height='40'  /> 
-            : <Image src={darkThemelogo} alt="my logo" width='70' height='40'  /> 
+            ? <Link href='/'><Image className='cursor-pointer' src={logo} alt="my logo" width='80' height='40'  /></Link> 
+            : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40'  /></Link> 
         }
-        <div className="md:hidden">
+        <div className="md:hidden cursor-pointer">
           {renderThemeChanger()}
         </div>
         <div>
@@ -75,7 +75,7 @@ const Navbar = () => {
             <Link href="/">
               <li className='ml-10 text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Blog</li>
             </Link>
-            <Link href="/">
+            <Link href="/contact">
               <li className='ml-10 mr-10 text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Contact</li>
             </Link>
             <div className='mr-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-900 p-[7px] rounded-full'>
@@ -98,8 +98,8 @@ const Navbar = () => {
             <div className='flex w-full items-center justify-between'>
             {
               theme !== 'dark' 
-                ? <Image src={logo} alt="my logo" width='65' height='35'  /> 
-                : <Image src={darkThemelogo} alt="my logo" width='55' height='35'  /> 
+                ? <Link href='/'><Image className='cursor-pointer' src={logo} alt="my logo" width='65' height='35'  /></Link> 
+                : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='55' height='35'  /></Link> 
             }
             <div onClick={handleOpen} className='rounded-xl shadow-md shadow-gray-300 dark:shadow-sm dark:shadow-gray-100 p-3 cursor-pointer'>
               <AiOutlineClose size={25} />
@@ -123,7 +123,7 @@ const Navbar = () => {
               <Link href="/">
               <li className='py-4 text-sm font-[500]'>Blog</li>
               </Link>
-              <Link href="/">
+              <Link href="/contact">
               <li className='py-4 text-sm font-[500]'>Contact</li>
               </Link>
             </ul>

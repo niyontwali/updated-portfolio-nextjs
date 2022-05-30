@@ -4,7 +4,7 @@ import {FaLinkedinIn, FaGithub, FaFacebook, FaInstagram, FaTwitter} from 'react-
 
 const Main = () => {
   return (
-    <div className='w-full h-screen pt-16 text-center'>
+    <div className='bg-dots w-full h-screen pt-16 text-center'>
       <div className='max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center'>
         <div>
           <p className='uppercase text-sm tracking-widest text-gray-600 dark:text-gray-400'>Let's build the extraordinariness</p>
