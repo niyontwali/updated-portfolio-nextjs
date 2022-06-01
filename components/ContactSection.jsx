@@ -13,7 +13,7 @@ const ContactSection = () => {
           <div className="col-span-3 lg:col-span-2 w-full h-full shadow-md shadow-gray-300 dark:shadow-gray-800 rounded-xl  px-4 py-4 sm:py-2 md:py-0">
             <div className="lg:p-4 h-full">
               <div className='rounded-2xl overflow-hidden'>
-               <Image src={profileImage} placeholder='blur' priority alt='Profile image' className='hover:scale-105 ease-in duration-300' />
+               <Image src={profileImage} placeholder='blur' loading='eager' alt='Profile image' className='hover:scale-105 ease-in duration-300' />
               </div>
               <div>
                 <h2 className='py-2 font-[500]'>John Niyontwali</h2>
