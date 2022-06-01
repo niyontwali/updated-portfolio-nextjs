@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
-import avatar from '../public/assets/projects/avatar.webp'
+import avatar from '../public/assets/avatar.jpg'
 import logo from '../public/assets/navLogo.jpg'
 import darkThemelogo from '../public/assets/darkThemeLogo.jpg'
 import AvatarDropdown from './AvatarDropdown'
@@ -55,34 +55,38 @@ const Navbar = () => {
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         {
           theme !== 'dark' 
-            ? <Link href='/'><Image className='cursor-pointer' src={logo} priority alt="my logo" width='80' height='40'  /></Link> 
-            : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} priority alt="my logo" width='70' height='40'  /></Link> 
-        }
-        <div className="md:hidden cursor-pointer">
+            ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority /></Link> 
+            : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority /></Link>
+        }       
+        <div className="md:hidden cursor-pointer mx-auto w-[60px]">
           {renderThemeChanger()}
         </div>
         <div>
-          <ul className='hidden md:flex md:items-center'>
+          <ul className='hidden md:flex md:items-center space-x-10'>
             <Link href="/">
-              <li className='ml-10 text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Home</li>
+              <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Home</li>
             </Link>
             <Link href="/skills">
-              <li className='ml-10 text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Skills</li>
+              <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Skills</li>
             </Link>
             <Link href="/">
-              <li className='ml-10 text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Projects</li>
+              <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Projects</li>
             </Link>
             <Link href="/">
-              <li className='ml-10 text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Blog</li>
+              <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Blog</li>
             </Link>
             <Link href="/contact">
-              <li className='ml-10 mr-10 text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Contact</li>
+              <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Contact</li>
             </Link>
-            <div className='mr-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-900 p-[7px] rounded-full'>
+          </ul>
+        </div>
+        <div>
+          <ul className='hidden md:flex md:items-center'>
+          <div className='mr-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-900 p-[7px] rounded-full'>
               {renderThemeChanger()}
             </div>
-            <div href="/">
-              <Image src={avatar} alt="my logo" width='40' height='40' className='cursor-pointer' onClick={handleClick} />
+            <div href="/" className='flex items-center'>
+              <Image src={avatar} alt="my logo" width='40' height='40' priority className='rounded-full border-green-900 cursor-pointer' onClick={handleClick} />
             </div>
           </ul>
           <div onClick={handleOpen} className='md:hidden'>
@@ -98,8 +102,8 @@ const Navbar = () => {
             <div className='flex w-full items-center justify-between'>
             {
               theme !== 'dark' 
-                ? <Link href='/'><Image className='cursor-pointer' src={logo} priority alt="my logo" width='65' height='35'  /></Link> 
-                : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} priority alt="my logo" width='55' height='35'  /></Link> 
+                ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='65' height='35' priority  /></Link> 
+                : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='55' height='35' priority /></Link> 
             }
             <div onClick={handleOpen} className='rounded-xl shadow-md shadow-gray-300 dark:shadow-sm dark:shadow-gray-100 p-3 cursor-pointer'>
               <AiOutlineClose size={25} />

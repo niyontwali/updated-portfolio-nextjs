@@ -29,10 +29,34 @@ html {
 
 }
 
+.spinner {
+  animation: spin infinite 1s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .bg-dots {
-  background-image: radial-gradient(green 1%, transparent 2%),
+  animation: dots 0.5s linear infinite alternate;
+}
+
+@keyframes dots {
+  0% {
+    background-size: 50px 40px;
+    background-position: 0 0, 30px 30px;
+    background-image: radial-gradient(blue 1%, transparent 2%),
     radial-gradient(blue 1%, transparent 2%);
-  background-size: 60px 60px;
-  background-position: 0 0, 30px 30px;
-  background-repeat: repeat;
+  }
+  100% {
+    background-size: 50px 40px;
+    background-position: 0 0, 30px 30px;
+    background-image: radial-gradient(blue 2%, transparent 2%),
+    radial-gradient(blue 2%, transparent 2%);
+  }
 }

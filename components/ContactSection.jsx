@@ -13,7 +13,7 @@ const ContactSection = () => {
           <div className="col-span-3 lg:col-span-2 w-full h-full shadow-md shadow-gray-300 dark:shadow-gray-800 rounded-xl  px-4 py-4 sm:py-2 md:py-0">
             <div className="lg:p-4 h-full">
               <div className='rounded-2xl overflow-hidden'>
-               <Image src={profileImage} placeholder='blur' loading='eager' alt='Profile image' className='hover:scale-105 ease-in duration-300' />
+               <Image src={profileImage} placeholder='blur' alt='Profile image' className='hover:scale-105 ease-in duration-300' priority />
               </div>
               <div>
                 <h2 className='py-2 font-[500]'>John Niyontwali</h2>
@@ -46,7 +46,7 @@ const ContactSection = () => {
           <div className='col-span-3 lg:col-span-4 w-full h-auto shadow-md dark:shadow-gray-800 shadow-gray-300 rounded-xl lg:px-14'>
             <div className='p-4'>
               <form>
-                <div className='grid md:grid-cols-2 gap-8 w-full py-2'>
+                <div className='grid md:grid-cols-2 lg:gap-8 w-full py-2'>
                   <div className='flex flex-col'>
                     <label className='uppercase text-sm py-[5px]'>Name</label>
                     <input 
@@ -54,14 +54,14 @@ const ContactSection = () => {
                       type="text" />
                   </div>
                   <div className='flex flex-col'>
-                    <label className='uppercase text-sm py-[5px]'>Phone Number</label>
+                    <label className='uppercase text-sm pt-[5px]'>Phone Number</label>
                     <input 
                       className='border-2 rounded-lg p-2 flex border-gray-300 dark:border-gray-700 dark:bg-transparent outline-none' 
                       type="text" />
                   </div>
                 </div>
                 <div className='flex flex-col'>
-                  <label className='uppercase text-sm py-[5px]'>Email</label>
+                  <label className='uppercase text-sm pb-[5px]'>Email</label>
                   <input 
                     className='border-2 rounded-lg p-2 flex border-gray-300 dark:border-gray-700 dark:bg-transparent outline-none' 
                     type="email" />
