@@ -55,8 +55,8 @@ const Navbar = () => {
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         {
           theme !== 'dark' 
-            ? <Link href='/'><Image className='cursor-pointer' src={logo} alt="my logo" width='80' height='40'  /></Link> 
-            : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40'  /></Link> 
+            ? <Link href='/'><Image className='cursor-pointer' src={logo} priority alt="my logo" width='80' height='40'  /></Link> 
+            : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} priority alt="my logo" width='70' height='40'  /></Link> 
         }
         <div className="md:hidden cursor-pointer">
           {renderThemeChanger()}
@@ -98,8 +98,8 @@ const Navbar = () => {
             <div className='flex w-full items-center justify-between'>
             {
               theme !== 'dark' 
-                ? <Link href='/'><Image className='cursor-pointer' src={logo} alt="my logo" width='65' height='35'  /></Link> 
-                : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='55' height='35'  /></Link> 
+                ? <Link href='/'><Image className='cursor-pointer' src={logo} priority alt="my logo" width='65' height='35'  /></Link> 
+                : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} priority alt="my logo" width='55' height='35'  /></Link> 
             }
             <div onClick={handleOpen} className='rounded-xl shadow-md shadow-gray-300 dark:shadow-sm dark:shadow-gray-100 p-3 cursor-pointer'>
               <AiOutlineClose size={25} />
@@ -114,13 +114,13 @@ const Navbar = () => {
               <Link href="/">
               <li className='py-4 text-sm font-[500]'>Home</li>
               </Link>
-              <Link href="/">
+              <Link href="/skills">
               <li className='py-4 text-sm font-[500]'>Skills</li>
               </Link>
-              <Link href="/">
+              <Link href="/projects">
               <li className='py-4 text-sm font-[500]'>Projects</li>
               </Link>
-              <Link href="/">
+              <Link href="/blog">
               <li className='py-4 text-sm font-[500]'>Blog</li>
               </Link>
               <Link href="/contact">
