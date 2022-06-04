@@ -9,12 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.3.0",
+    "html-react-parser": "^1.4.14",
+    "moment": "^2.29.3",
     "next": "12.1.6",
     "next-themes": "^0.2.0",
     "nprogress": "^0.2.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-multi-carousel": "^2.8.0",
+    "sass": "^1.52.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
