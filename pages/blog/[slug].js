@@ -9,7 +9,6 @@ import Comments from '../../components/Comments';
 import CommentsForm from '../../components/CommentsForm';
 
 
-
 const PostDetails = ({ post }) => {
   return (
     <div>
@@ -19,7 +18,7 @@ const PostDetails = ({ post }) => {
         <link rel="icon" href="/titleLogo.jpg"/>
       </Head>
       <Navbar />
-      <div className='pt-20 container mx-auto px-10 mb-8'>
+      <div className='pt-20 container mx-auto px-4 lg:px-10 mb-8'>
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
           <div className='col-span-1 lg:col-span-8'>
             <PostDetail post = {post} />
@@ -28,7 +27,7 @@ const PostDetails = ({ post }) => {
             <Comments slug = {post.slug} />
           </div>
           <div className='col-span-1 lg:col-span-4'>
-            <div className='relative lg:sticky top-8'>
+            <div className='relative lg:sticky lg:top-[80px]'>
               <PostWidget slug = { post.slug } categories= {post.categories.map((category) => category.slug)} />
               <Categories />
             </div>

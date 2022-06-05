@@ -3,39 +3,36 @@ import React from 'react';
 import moment from 'moment';
 import Link from 'next/link';
 import { AiOutlineCalendar } from 'react-icons/ai'
+import SecondaryBtn from './SecondaryBtn';
 
 const PostCard = ({ post }) => {
   return (
-    <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8'> 
-      <div className='relative overflow-hidden shadow-md pb-80 mb-6'>
+    <div className='bg-gray-100 dark:bg-[#2d333b] shadow-lg rounded-lg p-0 lg:p-4 pb-3 mb-6'> 
+      <div className='relative overflow-hidden shadow-md pb-52  sm:pb-80 md:pb-48 mb-6 lg:rounded-lg'>
         <img 
           src={post.featuredImage.url} 
           alt={post.title}
-          width='100px'
-          height='100px'
-          className='object-top absolute h-80 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg' 
+          className='object-top absolute h-52 sm:h-80 md:h-48 w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg lg:hover:scale-105 lg:ease-in duration-300' 
         /> 
       </div>
-      <h1 className='transition duration-100 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold'>
+      <h2 className='transition duration-100 text-center mb-6 cursor-pointer hover:text-[#0284c7] text-3xl font-semibold'>
         <Link href={`/blog/${post.slug}`}>
           {post.title}
         </Link>
-      </h1>  
-      <div className='block lg:flex text-center items-center justify-center mb-8 w-full'>
-        <div className='flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8'>
-          <img src={post.author.photo.url} alt={post.author.name} height="30px" width="30px" />
-          <p className="inline aligh-middle text-gray-700 ml-2 text-lg">{post.author.name}</p>
+      </h2>  
+      <div className='flex lg:flex-row flex-col items-center justify-center mb-6 w-full'>
+        <div className='flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto lg:mr-10 font-semibold'>
+          <img src={post.author.photo.url} alt={post.author.name} height="30px" width="30px" className='rounded-full' />
+          <p className="inline aligh-middle text-gray-700 dark:text-gray-300 ml-2 text-sm">{post.author.name}</p>
         </div>
-        <div className='font-medium text-gray-700 '>
-          <AiOutlineCalendar size={25} className='mx-auto inline mr-2 text-pink-500' />
-          <span>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
+        <div className='font-medium text-gray-700 dark:text-gray-300 flex items-center'>
+          <AiOutlineCalendar size={20} color='#0284c7' className='mx-auto inline mr-2' />
+          <span className='text-sm'>{moment(post.createdAt).format('MMM DD, YYYY')}</span>
         </div>
       </div>
-      <p className='text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8'>{post.excerpt}</p>
-      <div className='text-center'>
-        <Link href={`/blog/${post.slug}`}>
-          <span className='transition duration-500 transform hover:-translate-y-1 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer'>Continue reading</span>
-        </Link>
+      <p className='text-center text-lg text-gray-700 dark:text-gray-300 font-normal px-2 lg:px-2 mb-4'>{post.excerpt}</p>
+      <div className='text-center my-4'>
+        <SecondaryBtn href={`/blog/${post.slug}`} />
       </div>
     </div>
   )

@@ -51,7 +51,7 @@ const Navbar = () => {
   };
   
   return (
-    <div className='fixed w-full h-[70px] shadow-xl bg-[#ecf0f3] dark:bg-gray-800 z-[100]'>
+    <div className='fixed w-full h-[70px] shadow-xl bg-[#ecf0f3] dark:bg-[#2d333b] z-[100]'>
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         {
           theme !== 'dark' 
@@ -69,7 +69,7 @@ const Navbar = () => {
             <Link href="/skills">
               <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Skills</li>
             </Link>
-            <Link href="/">
+            <Link href="/projects">
               <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Projects</li>
             </Link>
             <Link href="/blog">
