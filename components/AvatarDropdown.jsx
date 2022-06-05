@@ -4,7 +4,7 @@ import avatar from '../public/assets/avatar.jpg'
 
 const AvatarDropdown = () => {
   return (
-    <div className="absolute top-[70px] -right-[-70px] w-[300px] bg-[#e5ebee] dark:bg-gray-800 border-[1px] border-[#e5ebee] dark:border-gray-900 text-black dark:text-[#ccc] text-[19px] p-[1rem] rounded-[8px] overflow-hidden shadow-md shadow-[#bdd4df] dark:shadow-gray-800">
+    <div className="absolute top-[70px] -right-[-70px] w-[300px] bg-[#e5ebee] dark:bg-[#2d333b] border-[1px] border-[#e5ebee] dark:border-gray-900 text-black dark:text-[#ccc] text-[19px] p-[1rem] rounded-[8px] overflow-hidden shadow-md shadow-[#bdd4df] dark:shadow-gray-800">
       <div className="flex justify-center">
         <Image className="rounded-full" width='100px' height='100px' src={avatar} alt="avatar" priority/>
       </div>

@@ -1,19 +1,17 @@
 import Head from 'next/head'
-import Main from '../components/Main'
+import Projects from '../components/Projects'
 import Navbar from '../components/Navbar'
 
-export default function Home() {
+export default function Project() {
   return (
     <div>
       <Head>
-        <title>John | Full-stack Developer</title>
-        <meta name="description" content="John's portfolio" />
+        <title>John | Projects</title>
+        <meta name="description" content="Projects page" />
         <link rel="icon" href="/titleLogo.jpg"/>
       </Head>
       <Navbar />
-      <Main />
+      <Projects />
     </div>
   )
 }
-
-

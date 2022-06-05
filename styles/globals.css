@@ -8,7 +8,7 @@ html {
 
 @layer base {
   body {
-    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide dark:bg-gray-900 dark:text-gray-300
+    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide dark:bg-[#22272e] dark:text-gray-300
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -59,4 +59,40 @@ html {
     background-image: radial-gradient(blue 2%, transparent 2%),
     radial-gradient(blue 2%, transparent 2%);
   }
+}
+
+
+.link {
+  color: var(--clr-primary);
+  padding: 0 0 0.3em 0;
+  position: relative;
+}
+
+.link:hover {
+  color: var(--clr-primary);
+}
+
+.link::before {
+  content: '';
+  display: inline;
+  width: 0%;
+  height: 0.2em;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--clr-primary);
+  transition: width 0.2s ease-in;
+}
+
+.link:hover::before,
+.link:focus::before {
+  width: 100%;
+}
+
+.link--nav {
+  color: var(--clr-fg);
+  font-weight: 500;
+}
+
+.link--icon {
+  color: var(--clr-fg);
 }
