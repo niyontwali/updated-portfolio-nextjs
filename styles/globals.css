@@ -96,3 +96,17 @@ html {
 .link--icon {
   color: var(--clr-fg);
 }
+
+
+.skeleton {
+  animation: skeleton-loading 0.5s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+  }
+  100% {
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  }
+}

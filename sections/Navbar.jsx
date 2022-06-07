@@ -2,7 +2,8 @@ import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import {useState, useEffect} from 'react'
 import Link from 'next/link'
-import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { FaLaptopCode } from 'react-icons/fa'
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import avatar from '../public/assets/avatar.jpg'
 import logo from '../public/assets/navLogo.jpg'
@@ -52,17 +53,26 @@ const Navbar = () => {
   
   return (
     <div className='fixed w-full h-[70px] shadow-xl bg-[#ecf0f3] dark:bg-[#2d333b] z-[100]'>
-      <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
+      <div className='flex justify-between items-center h-full px-2 2xl:px-16'>
+        <div className='md:hidden'>
         {
           theme !== 'dark' 
             ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority /></Link> 
             : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority /></Link>
-        }       
-        <div className="md:hidden cursor-pointer mx-auto w-[60px]">
+        }  
+        </div>
+        <div className="md:hidden absolute left-[48%] cursor-pointer flex justify-center">
           {renderThemeChanger()}
         </div>
         <div>
-          <ul className='hidden md:flex md:items-center space-x-10'>
+          <ul className='hidden md:flex md:items-center gap-10'>
+            <div className='mr-[20px]'>
+              {
+                theme !== 'dark' 
+                  ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority /></Link> 
+                  : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority /></Link>
+              }  
+            </div>
             <Link href="/">
               <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Home</li>
             </Link>
@@ -82,10 +92,10 @@ const Navbar = () => {
         </div>
         <div>
           <ul className='hidden md:flex md:items-center'>
-          <div className='mr-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-900 p-[7px] rounded-full'>
-              {renderThemeChanger()}
+            <div className='mr-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-900 p-[7px] rounded-full'>
+                {renderThemeChanger()}
             </div>
-            <div href="/" className='flex items-center'>
+            <div className='flex items-center'>
               <Image src={avatar} alt="my logo" width='40' height='40' priority className='rounded-full border-green-900 cursor-pointer' onClick={handleClick} />
             </div>
           </ul>
