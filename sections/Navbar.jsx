@@ -55,19 +55,23 @@ const Navbar = () => {
     <div className='fixed w-full h-[70px] shadow-xl bg-[#ecf0f3] dark:bg-[#2d333b] z-[100]'>
       <div className='flex justify-between items-center h-full px-2 2xl:px-16'>
         <div className='md:hidden'>
-          <Link href='/'>
-            <FaLaptopCode className='' size={30} />
-          </Link>
+        {
+          theme !== 'dark' 
+            ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority /></Link> 
+            : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority /></Link>
+        }  
         </div>
-        <div className="md:hidden bg-red-300 cursor-pointer mx-auto w-[60px]">
+        <div className="md:hidden absolute left-[48%] cursor-pointer flex justify-center">
           {renderThemeChanger()}
         </div>
         <div>
           <ul className='hidden md:flex md:items-center gap-10'>
-            <div className='mr-[35px]'>
-              <Link href='/' className=''>
-                <FaLaptopCode className='' size={50} />
-              </Link>
+            <div className='mr-[20px]'>
+              {
+                theme !== 'dark' 
+                  ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority /></Link> 
+                  : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority /></Link>
+              }  
             </div>
             <Link href="/">
               <li className='text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]'>Home</li>

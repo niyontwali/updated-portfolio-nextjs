@@ -3,10 +3,13 @@ import { useState, useEffect} from 'react';
 import moment from 'moment';
 import Link from 'next/link'
 import { getRecentPosts, getSimilarPosts } from '../services'
+import RecentPostsLoader from './RecentPostsLoader';
+
 
 
 const PostWidget = ({ categories, slug }) => {
   const [relatedPosts, setRelatedPosts] = useState([])
+  const [loading, setLoading] = useState(null)
 
   useEffect(() => {
     if (slug) {
@@ -18,12 +21,19 @@ const PostWidget = ({ categories, slug }) => {
     }
   }, [slug, categories])
 
+  useEffect(() => {
+    if(relatedPosts.length === 0) {
+      setLoading(true)
+    } else {
+      setLoading(false)
+    }
+  }, [relatedPosts])
   return (
-    <div className='bg-gray-100 dark:bg-[#2d333b] shadow-lg rounded-lg p-8 mb-8'>
+    <div className='bg-gray-100 dark:bg-[#2d333b] shadow-lg rounded-lg px-8 py-5 mb-8'>
       <h3 className='text-cl mb-8 font-semibold border-b-2 border-[#e0e6e9] pb-4'>
         {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>
-      {relatedPosts.map((post => (
+      {loading ? <RecentPostsLoader /> : relatedPosts.map((post => (
         <div key={post.title} className='flex items-center w-full mb-4'>
           <div className='w-16 flex-none'>
             <img

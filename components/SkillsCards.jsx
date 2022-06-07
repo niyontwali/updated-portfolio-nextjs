@@ -20,7 +20,7 @@ const SkillsCards = () => {
   return (
     <div className="pt-20 w-full lg:h-screen sm:px-6 md:px-14 lg:px-48">
       <div className="mx-auto flex flex-col justify-center h-full">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 justify-center">
           <Card pic={html} skill='HTML5' />
           <Card pic={css} skill='CSS3' />
           <Card pic={figma} skill='Figma' />
