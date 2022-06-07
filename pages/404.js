@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
 import Link from 'next/link';
-import Navbar from '../components/Navbar'
 import {HiOutlineEmojiSad} from 'react-icons/hi'
 
 const NotFound = () => {
@@ -12,7 +11,6 @@ const NotFound = () => {
         <meta name="description" content="404- Page not found" />
         <link rel="icon" href="/titleLogo.jpg"/>
       </Head>
-      <Navbar />
       <div className='container mx-auto py-40 h-full flex flex-col justify-center items-center space-y-12'>
         <div className='text-center space-y-6'>
           <HiOutlineEmojiSad size={75} color='#c5ae2c' className='m-auto' />

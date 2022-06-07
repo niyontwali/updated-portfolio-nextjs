@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Router from 'next/router'
 import {useState} from 'react'
 import NProgress from 'nprogress'
+
+import Layout from '../sections/Layout'
 import Loader from '../components/Loader'
 import '../styles/globals.css'
 
@@ -27,7 +29,7 @@ function MyApp({ Component, pageProps }) {
     </Head>
     {loading
       ? <Loader />
-      : <Component {...pageProps} />
+      : <Layout><Component {...pageProps} /></Layout>
     }
   </ThemeProvider>)
 }
