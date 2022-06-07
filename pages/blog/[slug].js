@@ -1,4 +1,3 @@
-import Navbar from '../../components/Navbar';
 import Head from 'next/head'
 import { getPosts, getPostDetails } from '../../services';
 import Categories from '../../components/Categories';
@@ -17,7 +16,6 @@ const PostDetails = ({ post }) => {
         <meta name="description" content="Blog Detail" />
         <link rel="icon" href="/titleLogo.jpg"/>
       </Head>
-      <Navbar />
       <div className='pt-20 container mx-auto px-4 lg:px-10 mb-8'>
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
           <div className='col-span-1 lg:col-span-8'>

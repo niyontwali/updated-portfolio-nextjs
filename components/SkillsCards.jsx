@@ -20,23 +20,23 @@ const SkillsCards = () => {
   return (
     <div className="pt-20 w-full lg:h-screen px-2">
       <div className="max-w-[1240px] mx-auto flex flex-col justify-center h-full">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <Card html={html} skill='HTML5' />
-          <Card html={css} skill='CSS3' />
-          <Card html={figma} skill='Figma Design Tool' />
-          <Card html={javascript} skill='JavaScript' />
-          <Card html={node} skill='NodeJs' />
-          <Card html={react} skill='ReactJs' />
-          <Card html={reactnative} skill='React-native' />
-          <Card html={nextjs} skill='NextJs' />
-          <Card html={tailwind} skill='Tailwind CSS' />
-          <Card html={bootstrap} skill='Bootstrap' />
-          <Card html={aws} skill='Cloud DevOps' />
-          <Card html={postgres} skill='PostgreSQL' />
-          <Card html={mongo} skill='Mongo DB' />
-          <Card html={firebase} skill='Firebase' />
-          <Card html={github} skill='Github' />
-          <Card html={git} skill='Git Version Control' />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
+          <Card pic={html} skill='HTML5' />
+          <Card pic={css} skill='CSS3' />
+          <Card pic={figma} skill='Figma' />
+          <Card pic={javascript} skill='JavaScript' />
+          <Card pic={node} skill='NodeJs' />
+          <Card pic={react} skill='ReactJs' />
+          <Card pic={reactnative} skill='React-native' />
+          <Card pic={nextjs} skill='NextJs' />
+          <Card pic={tailwind} skill='Tailwind CSS' />
+          <Card pic={bootstrap} skill='Bootstrap' />
+          <Card pic={aws} skill='Cloud DevOps' />
+          <Card pic={postgres} skill='PostgreSQL' />
+          <Card pic={mongo} skill='Mongo DB' />
+          <Card pic={firebase} skill='Firebase' />
+          <Card pic={github} skill='Github' />
+          <Card pic={git} skill='Git Version Control' />
         </div>
       </div>
     </div>

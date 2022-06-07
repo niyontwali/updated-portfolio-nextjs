@@ -7,7 +7,7 @@ import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import avatar from '../public/assets/avatar.jpg'
 import logo from '../public/assets/navLogo.jpg'
 import darkThemelogo from '../public/assets/darkThemeLogo.jpg'
-import AvatarDropdown from './AvatarDropdown'
+import AvatarDropdown from '../components/AvatarDropdown'
 
 const Navbar = () => {
   // State for toggling the mobile menu component

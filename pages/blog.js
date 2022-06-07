@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Blog from '../components/Blog'
-import Navbar from '../components/Navbar'
 import { getPosts } from '../services'
 
 
@@ -12,7 +11,6 @@ export default function Blogs ({posts}) {
         <meta name="description" content="My blogs" />
         <link rel="icon" href="/titleLogo.jpg"/>
       </Head>
-      <Navbar />
       <Blog posts={posts} />
     </div>
   )

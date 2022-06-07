@@ -1,12 +1,12 @@
 import Image from 'next/image'
 
-const Card = ({html, skill}) => {
+const Card = ({pic, skill}) => {
   return (
     <>
-    <div className="py-6 shadow-xl dark:bg-[#2d333b] dark:shadow-md dark:shadow-gray-700 rounded-xl hover:scale-105 ease-in duration-300">
-      <div className="grid grid-cols-2 gap-2 justify-center items-center">
+    <div className="py-2 h-24 w-64 px-2 shadow-xl dark:bg-[#2d333b] dark:shadow-md dark:shadow-gray-700 rounded-xl hover:scale-105 ease-in duration-300 flex items-center justify-center">
+      <div className="grid grid-cols-2 gap-6 justify-center items-center">
         <div className="m-auto">
-          <Image src={html} placeholder='blur' priority width='64px' height='64px' alt='skill image' />
+          <Image src={pic} placeholder='blur' priority width='30px' height='30px' alt='skill image' />
         </div>
         <div className='flex flex-col items-center justify-center'>
           <h3>{skill}</h3>
