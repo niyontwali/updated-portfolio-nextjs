@@ -10,7 +10,7 @@ import CommentsForm from '../../components/CommentsForm';
 
 const PostDetails = ({ post }) => {
   return (
-    <div>
+    <>
        <Head>
         <title>John | Blog Detail</title>
         <meta name="description" content="Blog Detail" />
@@ -32,7 +32,7 @@ const PostDetails = ({ post }) => {
           </div>
         </div>
         </div>
-    </div>
+    </>
   )
 }
 

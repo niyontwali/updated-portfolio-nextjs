@@ -3,7 +3,6 @@ import { useTheme } from 'next-themes'
 import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { FaLaptopCode } from 'react-icons/fa'
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import avatar from '../public/assets/avatar.jpg'
 import logo from '../public/assets/navLogo.jpg'
@@ -57,8 +56,16 @@ const Navbar = () => {
         <div className='md:hidden'>
         {
           theme !== 'dark' 
-            ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority /></Link> 
-            : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority /></Link>
+            ? <Link href='/'>
+                <a>
+                  <Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority />
+                </a>
+              </Link> 
+            : <Link href='/'>
+                <a>
+                  <Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority />
+                </a>
+              </Link>
         }  
         </div>
         <div className="md:hidden absolute left-[48%] cursor-pointer flex justify-center">
@@ -69,8 +76,16 @@ const Navbar = () => {
             <div className='mr-[20px]'>
               {
                 theme !== 'dark' 
-                  ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority /></Link> 
-                  : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority /></Link>
+                  ? <Link href='/'>
+                      <a>
+                        <Image className='cursor-pointer' src={logo}  alt="my logo" width='80' height='40' priority />
+                      </a>
+                    </Link> 
+                  : <Link href='/'>
+                      <a>
+                        <Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='70' height='40' priority />
+                      </a>
+                    </Link>
               }  
             </div>
             <Link href="/">
@@ -112,8 +127,16 @@ const Navbar = () => {
             <div className='flex w-full items-center justify-between'>
             {
               theme !== 'dark' 
-                ? <Link href='/'><Image className='cursor-pointer' src={logo}  alt="my logo" width='65' height='35' priority  /></Link> 
-                : <Link href='/'><Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='55' height='35' priority /></Link> 
+                ? <Link href='/'>
+                    <a>
+                      <Image className='cursor-pointer' src={logo}  alt="my logo" width='65' height='35' priority  />
+                    </a>
+                  </Link> 
+                : <Link href='/'>
+                    <a>
+                      <Image className='cursor-pointer' src={darkThemelogo} alt="my logo" width='55' height='35' priority />
+                    </a>
+                  </Link> 
             }
             <div onClick={handleOpen} className='rounded-xl shadow-md shadow-gray-300 dark:shadow-sm dark:shadow-gray-100 p-3 cursor-pointer'>
               <AiOutlineClose size={25} />

@@ -13,7 +13,7 @@ const AvatarDropdown = () => {
       </div>
       <div className="flex justify-center my-8">
         <Link href="/login">
-          <button className='text-sm uppercase py-3 px-8 shadow-sm rounded-lg hover:border-[1px] hover:bg-[#0284c7] border-[1px] font-[500] border-[#0284c7] hover:border-[#0284c7] hover:text-white text-black dark:text-white'>Login</button>
+          <a className='text-sm uppercase py-3 px-8 shadow-sm rounded-lg hover:border-[1px] hover:bg-[#0284c7] border-[1px] font-[500] border-[#0284c7] hover:border-[#0284c7] hover:text-white text-black dark:text-white'>Login</a>
         </Link>
       </div>
     </div>
