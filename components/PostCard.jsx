@@ -32,7 +32,7 @@ const PostCard = ({ post }) => {
       </div>
       <p className='text-center text-md text-gray-700 dark:text-gray-300 font-normal px-2 lg:px-2 mb-6'>{post.excerpt} .....</p>
       <div className='text-center my-8'>
-        <SecondaryBtn href={`/blog/${post.slug}`} />
+        <SecondaryBtn href={`/blog/${post.slug}`} btnName="Continue reading"/>
       </div>
     </div>
   )

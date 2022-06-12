@@ -22,7 +22,7 @@ const ProjectItem = ({position, projectName,stacks, description, link, image1, i
         </div>
         <div className='relative lg:col-span-5 rounded-lg overflow-hidden p-2 flex flex-col gap-2 items-center'>
           <Image src={image1} height='1000' alt='project one' priority placeholder='blur' className='rounded-lg hover:scale-105 ease-in duration-300' title="Project Dashboard" />
-          <Image src={image2} height='1000' alt='project one' priority placeholder='blur' className='rounded-lg hover:scale-105 ease-in duration-300' />
+          <Image src={image2} height='1000' alt='project one' placeholder='blur' className='rounded-lg hover:scale-105 ease-in duration-300' />
         </div>
       </div>
     </>

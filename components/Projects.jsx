@@ -5,7 +5,7 @@ const Projects = () => {
   return (
     <div className='py-10 lg:pt-24 px-6 lg:px-48'>
         {projects.map((project) => (
-          <div key={project.id} className='h-[80vh]'>
+          <div key={project.id} className='lg:h-[80vh]'>
             <ProjectItem
             position={project.position}
             projectName={project.name}
