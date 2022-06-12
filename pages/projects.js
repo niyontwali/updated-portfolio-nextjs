@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Jumbotron from '../components/Jumbotron'
 import Projects from '../components/Projects'
 
 export default function Project() {
@@ -10,6 +11,9 @@ export default function Project() {
         <link rel="icon" href="/titleLogo.jpg"/>
       </Head>
       <Projects />
+      <div>
+        <Jumbotron />
+      </div>
     </div>
   )
 }
