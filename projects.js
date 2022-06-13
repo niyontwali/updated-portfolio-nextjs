@@ -37,7 +37,7 @@ export const projects = [
     stacks: ['Figma','TypeScript', 'GraphQL', 'Apollo-server', 'ReactJs', 'Apollo-client','PostgreSQL', 'Tailwindcss', 'Prisma ORM'],
     image1: flashcard1,
     image2: flashcard2,
-    link: 'https://luxury-cascaron-90910e.netlify.app/',
+    link: 'https://flashcard-levelup.netlify.app/',
     description: "This is a project was created right after the above Management System App where I now wanted to use GraphQL and TypeScript to see how it would work together. I also used Prisma ORM for the first time and it was the easiest ORM I ever level up on so fast and was able to grasp well its concepts. This is a simple flashcard application for amusement and can be used by movie lovers to evaluate how well they know the movies they have ever watched. It has an incredible dashboard for all CRUD(Create, Read, Update and Delete) operations."
   },
   {
