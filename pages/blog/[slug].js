@@ -38,7 +38,7 @@ const PostDetails = ({ post }) => {
 
 export default PostDetails
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const data = (await getPostDetails(params.slug));
 
   return {
@@ -46,11 +46,11 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export async function getStaticPaths() {
-  const posts = await getPosts() 
+// export async function getStaticPaths() {
+//   const posts = await getPosts() 
   
-  return {
-    paths: posts.map(({ node: {slug}}) => ({ params: { slug }})),
-    fallback: false
-  }
-}
+//   return {
+//     paths: posts.map(({ node: {slug}}) => ({ params: { slug }})),
+//     fallback: false
+//   }
+// }
