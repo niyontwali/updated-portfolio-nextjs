@@ -3,9 +3,9 @@ import { submitComment } from '../services';
 
 const CommentsForm = ({ slug }) => {
   const [error, setError] = useState(false);
-  const [localStorage, setLocalStorage] = useState(null);
+  const [localStorage, setLocalStorage] = useState('');
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [formData, setFormData] = useState({ name: null, email: null, comment: null, storeData: false });
+  const [formData, setFormData] = useState({ name: '', email: '', comment: '', storeData: false });
 
   useEffect(() => {
     setLocalStorage(window.localStorage);
@@ -35,7 +35,7 @@ const CommentsForm = ({ slug }) => {
   const handlePostSubmission = () => {
     setError(false);
     const { name, email, comment, storeData } = formData;
-    if (!name || !email || !comment) {
+    if (name === '' || email === '' || comment === '') {
       setError(true);
       return;
     }

@@ -16,8 +16,16 @@ export default function Blogs ({posts}) {
   )
 }
 
+// export async function getServerSideProps() {
+//   const posts = await getPosts() || []
+
+//   return {
+//     props: { posts }
+//   }
+// }
+
 export async function getStaticProps() {
-  const posts = (await getPosts()) || [];
+  const posts = (await getPosts());
 
   return {
     props: { posts }
