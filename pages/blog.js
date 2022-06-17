@@ -1,27 +1,26 @@
-import Head from 'next/head'
-import Blog from '../components/Blog'
-import { getPosts } from '../services'
+import Head from "next/head";
+import Blog from "../components/Blog";
+import { getPosts } from "../services";
 
-
-export default function Blogs ({posts}) {
+export default function Blogs({ posts }) {
   return (
     <>
       <Head>
         <title>John | Blog</title>
         <meta name="description" content="My blogs" />
-        <link rel="icon" href="/titleLogo.jpg"/>
+        <link rel="icon" href="/titleLogo.jpg" />
       </Head>
       <Blog posts={posts} />
     </>
-  )
+  );
 }
 
 export async function getServerSideProps() {
-  const posts = await getPosts() || []
+  const posts = (await getPosts()) || [];
 
   return {
-    props: { posts }
-  }
+    props: { posts },
+  };
 }
 
 // export async function getStaticProps() {

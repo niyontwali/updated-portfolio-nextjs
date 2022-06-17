@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import ContactSection from '../components/ContactSection'
+import Head from "next/head";
+import ContactSection from "../components/ContactSection";
 
 export default function Home() {
   return (
@@ -7,9 +7,9 @@ export default function Home() {
       <Head>
         <title>John | Contact Me</title>
         <meta name="description" content="Contact me page" />
-        <link rel="icon" href="/titleLogo.jpg"/>
+        <link rel="icon" href="/titleLogo.jpg" />
       </Head>
       <ContactSection />
     </div>
-  )
+  );
 }

@@ -1,8 +1,8 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import { getCategories, getCategoryPost } from '../../services';
-import PostCard from '../../components/PostCard';
-import Categories from '../../components/Categories';
+import { getCategories, getCategoryPost } from "../../services";
+import PostCard from "../../components/PostCard";
+import Categories from "../../components/Categories";
 
 const CategoryPost = ({ posts }) => {
   return (
@@ -10,7 +10,7 @@ const CategoryPost = ({ posts }) => {
       <Head>
         <title>John | Blog Category</title>
         <meta name="description" content="Blog Category" />
-        <link rel="icon" href="/titleLogo.jpg"/>
+        <link rel="icon" href="/titleLogo.jpg" />
       </Head>
       <div className="pt-16 container mx-auto px-10 mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -33,6 +33,7 @@ export default CategoryPost;
 
 // Fetch data at build time
 export async function getServerSideProps({ params }) {
+  // Using getServerSideProps if more efficient on my blog that getStaticProps with getStaticPaths
   const posts = await getCategoryPost(params.slug);
 
   return {

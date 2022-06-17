@@ -1,4 +1,10 @@
-import {FaLinkedinIn, FaGithub, FaFacebook, FaInstagram, FaTwitter} from 'react-icons/fa'
+import {
+  FaLinkedinIn,
+  FaGithub,
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
 import Link from "next/link";
 
 const Footer = () => {
@@ -13,31 +19,75 @@ const Footer = () => {
               John. N &copy; 2022 All rights Reserved
             </div>
             {/* social media icons */}
-            <div className='flex items-center justify-center space-x-2 sm:justify-between md:justify-between max-w-[350px] m-auto py-6'>
-            <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-              <a href="https://github.com/niyontwali" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+            <div className="flex items-center justify-center space-x-2 sm:justify-between md:justify-between max-w-[350px] m-auto py-6">
+              <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+                <a
+                  href="https://github.com/niyontwali"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub />
+                </a>
+              </div>
+              <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+                <a
+                  href="https://www.linkedin.com/in/john-niyontwali-816549111/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedinIn />
+                </a>
+              </div>
+              <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+                <a
+                  href="https://twitter.com/JohnNiyontwali"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaTwitter />
+                </a>
+              </div>
+              <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+                <a
+                  href="https://web.facebook.com/niyontwali.john/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook />
+                </a>
+              </div>
+              <div className="rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300">
+                <a
+                  href="https://www.instagram.com/n.john01/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram />
+                </a>
+              </div>
             </div>
-            <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-              <a href="https://www.linkedin.com/in/john-niyontwali-816549111/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-            </div>
-            <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-              <a href="https://twitter.com/JohnNiyontwali" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-            </div>
-            <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-              <a href="https://web.facebook.com/niyontwali.john/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-            </div>
-            <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-              <a href="https://www.instagram.com/n.john01/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-            </div>
-          </div>
           </div>
           {/* list container */}
           <div className="">
-          <p className="font-bold text-lg text-center pb-6 text-gray-900 dark:text-gray-300">Userful links</p>
+            <p className="font-bold text-lg text-center pb-6 text-gray-900 dark:text-gray-300">
+              Userful links
+            </p>
             <div className="flex space-x-6 text-gray-900 font-[500] dark:text-gray-300 justify-center">
-              <Link href="/skills"><p className="border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7] cursor-pointer">Skills</p></Link>
-              <Link href="/projects"><p className="border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7] cursor-pointer">Projects</p></Link>
-              <Link href="/blog"><p className="border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7] cursor-pointer">Blog</p></Link>
+              <Link href="/skills">
+                <p className="border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7] cursor-pointer">
+                  Skills
+                </p>
+              </Link>
+              <Link href="/projects">
+                <p className="border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7] cursor-pointer">
+                  Projects
+                </p>
+              </Link>
+              <Link href="/blog">
+                <p className="border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7] cursor-pointer">
+                  Blog
+                </p>
+              </Link>
             </div>
           </div>
           {/* input container */}

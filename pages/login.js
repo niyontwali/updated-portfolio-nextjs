@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Login from '../components/Login'
+import Head from "next/head";
+import Login from "../components/Login";
 
 export default function Project() {
   return (
@@ -7,11 +7,11 @@ export default function Project() {
       <Head>
         <title>John | Login</title>
         <meta name="description" content="Login page" />
-        <link rel="icon" href="/titleLogo.jpg"/>
+        <link rel="icon" href="/titleLogo.jpg" />
       </Head>
       <div>
         <Login />
       </div>
     </div>
-  )
+  );
 }
