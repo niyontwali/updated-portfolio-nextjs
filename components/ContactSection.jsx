@@ -7,7 +7,7 @@ import { AiOutlineMail } from "react-icons/ai";
 const ContactSection = () => {
   return (
     <div className="w-full lg:h-screen">
-      <div className="mx-w-[1240px] m-auto px-4 sm:px-8 md:px-40  pt-16 w-full">
+      <div className="m-auto px-4 sm:px-8 md:px-40  pt-16 w-full">
         <div className="grid lg:grid-cols-6 gap-8 pt-3">
           {/* Left */}
           <div className="col-span-3 lg:col-span-3 max-w-[400px] mx-auto lg:mx-0 mt-4 lg:mt-16 h-fit shadow-md shadow-gray-300 dark:shadow-gray-800 rounded-xl  px-4 py-4 sm:py-2 md:py-0">

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import ContactSection from "../components/ContactSection";
 
-export default function Home() {
+export default function Contacts() {
   return (
     <div>
       <Head>

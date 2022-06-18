@@ -7,7 +7,11 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        abril: ["Abril Fatface", "cursive"]
+      },
+    },
   },
   plugins: [],
 }

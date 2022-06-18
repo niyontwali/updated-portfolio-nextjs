@@ -2,7 +2,7 @@ import { ThemeProvider } from "next-themes";
 import Router from "next/router";
 import { useState } from "react";
 import NProgress from "nprogress";
-import { SessionProvider} from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
 
 import Layout from "../sections/Layout";
 import Loader from "../components/Loader";
