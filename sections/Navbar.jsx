@@ -3,11 +3,13 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { BsFillSunFill, BsFillMoonFill, BsFillBookmarkStarFill } from "react-icons/bs";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 import avatar from "../public/assets/avatar.jpg";
 import logo from "../public/assets/navLogo.jpg";
 import darkThemelogo from "../public/assets/darkThemeLogo.jpg";
-import AvatarDropdown from "../components/AvatarDropdown";
+// import AvatarDropdown from "../components/AvatarDropdown";
 
 const Navbar = () => {
   // State for toggling the mobile menu component
@@ -16,6 +18,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const [mounted, setMounted] = useState(false);
+
+  const { data: session } = useSession();
 
   useEffect(() => {
     setMounted(true);
@@ -144,16 +148,34 @@ const Navbar = () => {
             <div className="mr-10 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-900 p-[7px] rounded-full">
               {renderThemeChanger()}
             </div>
+            <div className="flex items-center text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-none cursor-pointer hover:text-[#0284c7] mr-10">
+              <Link href="/">
+                <BsFillBookmarkStarFill size={27} />
+              </Link>
+            </div>
             <div className="flex items-center">
-              <Image
-                src={avatar}
-                alt="my logo"
-                width="40"
-                height="40"
-                priority
-                className="rounded-full border-green-900 cursor-pointer"
-                onClick={handleClick}
-              />
+              <div>
+                {!session ? (
+                  <button
+                    type="button"
+                    onClick={() => signIn()}
+                    className="text-sm uppercase py-2 px-8 shadow-sm rounded-lg hover:border-[3px] hover:bg-[#0284c7] border-[3px] font-[500] border-[#0284c7] hover:border-[#0284c7] hover:text-white text-black dark:text-white focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 whitespace-nowrap"
+                  >
+                    login
+                  </button>
+                ) : (
+                  <div className="flex items-center space-x-1 sm:space-x-2">
+                    <Image
+                      src={session.user.image}
+                      alt={session.user.name}
+                      className="rounded-full border-2 border-blue-500"
+                      width="40"
+                      height="40"
+                    />
+                    <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </ul>
           <div onClick={handleOpen} className="md:hidden">
@@ -238,11 +260,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {open && (
-        <div className="">
-          <AvatarDropdown />
-        </div>
-      )}
+      <div className="">{/* <AvatarDropdown /> */}</div>
     </div>
   );
 };

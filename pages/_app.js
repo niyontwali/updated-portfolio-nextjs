@@ -2,6 +2,7 @@ import { ThemeProvider } from "next-themes";
 import Router from "next/router";
 import { useState } from "react";
 import NProgress from "nprogress";
+import { SessionProvider} from "next-auth/react";
 
 import Layout from "../sections/Layout";
 import Loader from "../components/Loader";
@@ -9,7 +10,7 @@ import "../styles/globals.css";
 
 NProgress.configure({ showSpinner: false });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, session }) {
   const [loading, setLoading] = useState(false);
 
   Router.events.on("routeChangeStart", (url) => {
@@ -22,15 +23,17 @@ function MyApp({ Component, pageProps }) {
   });
 
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
-      {loading ? (
-        <Loader />
-      ) : (
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      )}
-    </ThemeProvider>
+    <SessionProvider session={session}>
+      <ThemeProvider enableSystem={true} attribute="class">
+        {loading ? (
+          <Loader />
+        ) : (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        )}
+      </ThemeProvider>
+    </SessionProvider>
   );
 }
 
