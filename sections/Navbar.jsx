@@ -3,13 +3,16 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { BsFillSunFill, BsFillMoonFill, BsFillBookmarkStarFill } from "react-icons/bs";
+import {
+  BsFillSunFill,
+  BsFillMoonFill,
+  BsFillBookmarkStarFill,
+} from "react-icons/bs";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-import avatar from "../public/assets/avatar.jpg";
 import logo from "../public/assets/navLogo.jpg";
 import darkThemelogo from "../public/assets/darkThemeLogo.jpg";
-// import AvatarDropdown from "../components/AvatarDropdown";
+import AvatarDropdown from "../components/AvatarDropdown";
 
 const Navbar = () => {
   // State for toggling the mobile menu component
@@ -19,9 +22,19 @@ const Navbar = () => {
 
   const [mounted, setMounted] = useState(false);
 
+  const [shadow, setShadow] = useState(false);
+
   const { data: session } = useSession();
 
   useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 50) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
     setMounted(true);
   }, []);
 
@@ -51,7 +64,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed w-full h-[70px] shadow-xl bg-[#ecf0f3] dark:bg-[#2d333b] z-[100]">
+    <div
+      className={
+        shadow
+          ? "fixed w-full h-[70px] shadow-xl bg-[#f3f6f8] dark:bg-[#2d333b] z-[100]"
+          : "fixed w-full h-[70px] bg-[#f3f6f8] dark:bg-[#2d333b] z-[100]"
+      }
+    >
       <div className="flex justify-between items-center h-full px-2 2xl:px-16">
         <div className="md:hidden">
           {theme !== "dark" ? (
@@ -168,9 +187,10 @@ const Navbar = () => {
                     <Image
                       src={session.user.image}
                       alt={session.user.name}
-                      className="rounded-full border-2 border-blue-500"
+                      className="rounded-full border-2 border-blue-500 cursor-pointer"
                       width="40"
                       height="40"
+                      onClick={handleClick}
                     />
                     <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
                   </div>
@@ -260,7 +280,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="">{/* <AvatarDropdown /> */}</div>
+      {open && (
+        <div className="">
+          <AvatarDropdown src={session.user.image} alt={session.user.name} />
+        </div>
+      )}
     </div>
   );
 };
