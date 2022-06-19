@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { SiBookstack } from "react-icons/si";
@@ -10,7 +11,7 @@ import {
   BsFillBookmarkStarFill,
   BsBook,
 } from "react-icons/bs";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 
 import AvatarDropdown from "../components/AvatarDropdown";
 import Tooltip from "../components/Tooltip";
@@ -27,6 +28,8 @@ const Navbar = () => {
   const [shadow, setShadow] = useState(false);
 
   const { data: session } = useSession();
+
+  const { push, asPath } = useRouter();
 
   useEffect(() => {
     const handleShadow = () => {
@@ -65,6 +68,8 @@ const Navbar = () => {
     setOpen(!open);
   };
 
+  const handleLogin = () => push(`/auth/login?callbackUrl=${asPath}`);
+
   return (
     <div
       className={
@@ -75,7 +80,7 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center h-full px-2 2xl:px-16">
         <div className="md:hidden">
-         <Logo />
+          <Logo />
         </div>
         <div className="md:hidden absolute left-[48%] cursor-pointer flex justify-center">
           {renderThemeChanger()}
@@ -137,7 +142,7 @@ const Navbar = () => {
                 {!session ? (
                   <button
                     type="button"
-                    onClick={() => signIn()}
+                    onClick={() => handleLogin()}
                     className="text-sm uppercase py-2 px-8 shadow-sm rounded-lg hover:border-[3px] hover:bg-[#0284c7] border-[3px] font-[500] border-[#0284c7] hover:border-[#0284c7] hover:text-white text-black dark:text-white focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 whitespace-nowrap"
                   >
                     login

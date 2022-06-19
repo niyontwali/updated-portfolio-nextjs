@@ -7,7 +7,7 @@ const Tooltip = ({ title }) => {
         <div className="w-3 h-3 bg-[#0284c7] rotate-45 -mt-[12px]"></div>
         <p className="text-gray-100 text-md"> {title} </p>
         <p className="max-w-[200px] pt-2 font-bold text-gray-200 text-xs">
-          Login Using your Gmail Account to access this page
+          Login Using your Gmail or Github or Twitter Account to access this page
         </p>
       </div>
     </>
