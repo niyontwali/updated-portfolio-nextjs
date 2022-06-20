@@ -1,96 +1,67 @@
-import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useSession, signIn } from "next-auth/react";
+import Loader from "./Loader";
+import { BsGithub, BsTwitter, BsGoogle } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-  });
+  const { data: session, status } = useSession();
+  const { push } = useRouter();
+  const github = <BsGithub />;
+  const twitter = <BsTwitter />;
+  const google = <BsGoogle />;
+  if (status === "loading")
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
 
-  const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+  if (session) {
+    setTimeout(() => {
+      push("/");
+    }, 3000);
+    return (
+      <div className="h-screen pt-[40vh] text-center">
+        <h3 className="text-xl tracking-wide mb-3">
+          Successfully, logged in as {session.user.name}
+        </h3>
+        <h3 className="text-blue-500">redirecting.......</h3>
+      </div>
+    );
+  }
 
-  const handleChange = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const providers = [
+    {
+      name: "github",
+      Icon: github,
+    },
+    {
+      name: "twitter",
+      Icon: twitter,
+    },
+    {
+      name: "google",
+      Icon: google,
+    },
+  ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (e.target.email.value === "" || e.target.password.value === "") {
-      setError("Please fill out all fields");
-    } else {
-      const error = "Only the Admin is authorized to login";
-      setError(error);
-      setTimeout(() => {
-        setError("");
-        setValues({
-          email: "",
-          password: "",
-        });
-      }, 3000);
-    }
-  };
-
+  const handleAuthLogin = (provider) => () => signIn(provider);
   return (
     <div className="w-full h-screen pt-[20vh] px-4">
-      <div className="bg-white dark:bg-[#2d333b] max-w-[450px] mx-auto mt-[5vh] rounded-xl shadow-xl shadow-gray-300 dark:shadow-lg dark:shadow-gray-700">
-        <div className="mx-4 lg:px-12 flex items-center py-6">
-          <form onSubmit={handleSubmit} className="w-full py-4">
-            <div className="text-center">
-              <p className="text-gray-800 dark:text-gray-300 text-2xl font-bold">
-                Login
-              </p>
-            </div>
-            <div>
-              {error && (
-                <p className="text-red-500 mt-4 text-center text-sm font-bold">
-                  {error}
-                </p>
-              )}
-            </div>
-            <div className="py-6">
-              <label className="text-lg text-gray-900 dark:text-gray-300 font-[400]">
-                Email
-              </label>
-              <input
-                type="email"
-                className="block w-full border-2 border-gray-300 rounded-md px-3 py-[6px] my-2 dark:border-gray-600 bg-transparent outline-none"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-              />
-              <label className="text-lg font-[400]">Password</label>
-              <div className="flex justify-between items-center w-full border-2 border-gray-300 rounded-md px-3 py-[6px] my-2 outline-none dark:border-gray-600 bg-trasparent">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  className="bg-transparent outline-none"
-                  name="password"
-                  value={values.password}
-                  onChange={handleChange}
-                />
-                <div
-                  className="cursor-pointer text-gray-500 dark:text-gray-300"
-                  onClick={handleShowPassword}
-                >
-                  {showPassword ? <FaEye /> : <FaEyeSlash />}
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center items-center mb-3">
+      <div className="bg-gray-100 dark:bg-[#2d333b] max-w-[450px] mx-auto mt-[5vh] rounded-xl shadow-xl shadow-gray-300 dark:shadow-lg dark:shadow-gray-900">
+        <div className="mx-4 lg:px-12 items-center py-6">
+          <div className="flex flex-col items-center justify-center py-4">
+            {providers.map(({ name, Icon }) => (
               <button
-                type="submit"
-                className="px-8 py-2 text-lg font-bold rounded-lg bg-[#0284c7] hover:bg-[#0a91d5] dark:bg-[#045d8a] dark:hover:bg-[#0679b3] text-gray-100"
+                key={name}
+                onClick={handleAuthLogin(name)}
+                className="flex justify-center items-center gap-4 text-md max-w-[250px] w-full uppercase py-2 shadow-sm rounded-lg hover:border-[3px] hover:bg-[#0284c7] dark:hover:bg-[#026799]  border-[3px] font-[500] border-[#0284c7] dark:border-[#026799] hover:border-[#0284c7] dark:hover:border-[#026799] hover:text-white text-black dark:text-white focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 whitespace-nowrap m-3"
               >
-                Login
+                {Icon}
+                Login with {name}
               </button>
-            </div>
-          </form>
+            ))}
+          </div>
         </div>
       </div>
     </div>

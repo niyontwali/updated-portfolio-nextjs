@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Login from "../components/Login";
+import Login from "../../components/Login";
 
-export default function Project() {
+export default function LoginPage() {
   return (
     <div>
       <Head>
@@ -9,9 +9,7 @@ export default function Project() {
         <meta name="description" content="Login page" />
         <link rel="icon" href="/titleLogo.jpg" />
       </Head>
-      <div>
-        <Login />
-      </div>
+      <Login />
     </div>
   );
 }
