@@ -3,6 +3,8 @@ import Router from "next/router";
 import { useState } from "react";
 import NProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
+import { ApolloProvider, ApolloClient, InMemoryCache} from 
+'@apollo/client';
 
 import Layout from "../sections/Layout";
 import Loader from "../components/Loader";
@@ -22,9 +24,29 @@ function MyApp({ Component, pageProps, session }) {
     setLoading(false);
   });
 
+  const cache = new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          allBookmarks: {
+            merge(existing, incoming) {
+              return incoming
+            }
+          }
+        }
+      }
+    }
+  })
+
+  const client = new ApolloClient({
+    uri: 'https://bookmarks-backend.herokuapp.com/graphql',
+    cache
+  })
+
   return (
     <SessionProvider session={session}>
       <ThemeProvider enableSystem={true} attribute="class">
+        <ApolloProvider client={client}>
         {loading ? (
           <Loader />
         ) : (
@@ -32,6 +54,7 @@ function MyApp({ Component, pageProps, session }) {
             <Component {...pageProps} />
           </Layout>
         )}
+        </ApolloProvider>
       </ThemeProvider>
     </SessionProvider>
   );

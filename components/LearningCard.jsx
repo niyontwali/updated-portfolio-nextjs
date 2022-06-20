@@ -1,4 +1,4 @@
-const LearningCard = () => {
+const LearningCard = ({learning}) => {
   return (
     <>
       <div className="text-gray-900 dark:text-gray-300 p-4 bg-gray-100 dark:bg-[#2d333b] max-w-[230px] m-2 rounded-lg shadow-gray-400 dark:shadow-gray-900 shadow-md cursor-pointer hover:scale-105 ease-in-out duration-300">

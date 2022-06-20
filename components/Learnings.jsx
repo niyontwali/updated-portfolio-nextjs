@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import { BsBook } from "react-icons/bs";
+import faunaQueries from "../lib/fauna";
 import LearningCard from "./LearningCard";
 
-const Learnings = () => {
+
+const Learnings = ({ data }) => {
   return (
     <div className="w-full lg:min-h-screen flex flex-col lg:flex-row px-4 sm:px-8 md:px-48">
       <div className="lg:w-1/2 pt-24 lg:pt-[30vh] lg:fixed lg:right-10">
@@ -24,22 +26,36 @@ const Learnings = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2 mt-32">
+      <div className="w-1/2 my-32">
         <div className="flex flex-wrap gap-6">
-          {/* Card */}
-          <LearningCard />
-          <LearningCard />
-          <LearningCard />
-          <LearningCard />
-          <LearningCard />
-          <LearningCard />
-          <LearningCard />
-          <LearningCard />
-          <LearningCard />
+          {
+            data.map((learning) => (
+              <LearningCard key={learning.id} learning={learning} />
+            ))
+          }
+          
         </div>
       </div>
     </div>
   );
 };
+
+export async function getStaticProps() {
+  try {
+    const  data  = await faunaQueries.getPosts();
+
+    return {
+      props: {
+        data,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        data: []
+      }
+    }
+  }
+}
 
 export default Learnings;
