@@ -47,13 +47,13 @@ function MyApp({ Component, pageProps, session }) {
     <SessionProvider session={session}>
       <ThemeProvider enableSystem={true} attribute="class">
         <ApolloProvider client={client}>
-        {loading ? (
+        {/* {loading ? (
           <Loader />
-        ) : (
+        ) : ( */}
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        )}
+        {/* )} */}
         </ApolloProvider>
       </ThemeProvider>
     </SessionProvider>

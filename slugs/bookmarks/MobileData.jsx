@@ -1,14 +1,14 @@
 import { useQuery } from "@apollo/client";
-import { BiErrorCircle } from "react-icons/bi";
-import { GET_BOOKMARKS_BY_CATEGORY } from "../services/bookmarksqueries";
-import BookmarkBlock from "./BookmarkBlock";
+import { BiErrorCircle, BiSad } from "react-icons/bi";
+import { GET_BOOKMARKS_BY_CATEGORY } from "../../services/bookmarksqueries";
 
-import Bookmark from "../skeletons/Bookmark";
+import Bookmark from "../../skeletons/Bookmark";
+import MobileCard from "./MobileCard";
 
-const BookmarkGrid = () => {
+const MobileData = () => {
   
    const { loading, error, data } = useQuery(GET_BOOKMARKS_BY_CATEGORY, {
-    variables: { category: "web" },
+    variables: { category: "mobile" },
   });
 
   if (loading)
@@ -23,13 +23,27 @@ const BookmarkGrid = () => {
     return (
       <div className="mt-8 px-10 w-fit">
         <div className="flex justify-center my-4">
-          <BiErrorCircle size={60} className="text-red-600" />
+          <BiErrorCircle size={60} className="text-[#e29f72]" />
         </div>
         <p className="flex items-center text-lg text-red-600 font-bold">
           Oops Something Went Wrong, check your network and reload the page!
         </p>
       </div>
     );
+
+  if (data.allBookmarks.length === 0)
+    return (
+      <div className="mt-8 px-10 w-fit">
+        <div className="flex justify-center my-4">
+          <BiSad size={60} className="text-[#e29f72]" />
+        </div>
+        <p className="flex items-center text-lg text-[#0284c7] font-bold text-center lg:text-left">
+          Currently no bookmarks related to this category available!
+        </p>
+      </div>
+    );
+    
+
   return (
     <div className="px-10">
       {!loading &&
@@ -37,7 +51,7 @@ const BookmarkGrid = () => {
         data.allBookmarks.map((bookmark) => {
           return (
             <div className="mt-4" key={bookmark.id}>
-              <BookmarkBlock bookmark={bookmark} />
+              <MobileCard bookmark={bookmark} />
             </div>
           );
         })}
@@ -45,4 +59,4 @@ const BookmarkGrid = () => {
   );
 };
 
-export default BookmarkGrid;
+export default MobileData;
