@@ -126,7 +126,7 @@ const Navbar = () => {
               <Link href="/myLearnings">
                 <SiBookstack className="hover:text-[#0284c7]" size={27} />
               </Link>
-              <Tooltip title="My Learning Store" />
+              <Tooltip title="My Learning Store" description="This is a store board of what I have learned. Visit the page to benefit from the records" />
             </div>
             <div className="text-sm font-[500] cursor-pointer  mr-10 group">
               <Link href="/bookmarks">
@@ -135,7 +135,7 @@ const Navbar = () => {
                   size={27}
                 />
               </Link>
-              <Tooltip title="My Bookmarks" />
+              <Tooltip title="My Bookmarks" description="This is where all the usefull links/resources visited are stored" />
             </div>
             <div className="flex items-center">
               <div>

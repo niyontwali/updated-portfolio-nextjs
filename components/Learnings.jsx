@@ -23,9 +23,9 @@ const Learnings = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2 my-32">
+      <div className="lg:w-1/2 my-6 lg:my-32">
         <div className="flex flex-wrap gap-6">
-          <div className="mt-[20vh]">
+          <div className="mt-0 lg:mt-[20vh]">
             <FaHandPaper className="mx-auto animate-wave text-[#e29f72]" size="50" />
             <h2 className="pt-10 text-center text-[#1f7c8a]">This page is being updated for better functionalities</h2>
           </div>

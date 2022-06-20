@@ -3,7 +3,7 @@ import Login from "../../components/Login";
 
 export default function LoginPage() {
   return (
-    <div>
+    <div className="min-h-screen">
       <Head>
         <title>John | Login</title>
         <meta name="description" content="Login page" />
