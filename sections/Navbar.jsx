@@ -91,29 +91,29 @@ const Navbar = () => {
               <Logo />
             </div>
             <Link href="/">
-              <li className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
+              <a className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
                 Home
-              </li>
+              </a>
             </Link>
             <Link href="/skills">
-              <li className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
+              <a className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
                 Skills
-              </li>
+              </a>
             </Link>
             <Link href="/projects">
-              <li className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
+              <a className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
                 Projects
-              </li>
+              </a>
             </Link>
             <Link href="/blog">
-              <li className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
+              <a className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
                 Blog
-              </li>
+              </a>
             </Link>
             <Link href="/contact">
-              <li className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
+              <a className="text-sm uppercase font-[500] border-b-2 border-b-transparent hover:border-b-[#0284c7] hover:text-[#0284c7]">
                 Contact
-              </li>
+              </a>
             </Link>
           </ul>
         </div>
@@ -124,7 +124,9 @@ const Navbar = () => {
             </div>
             <div className="text-sm font-[500] cursor-pointer  mr-4 group">
               <Link href="/myLearnings">
-                <SiBookstack className="hover:text-[#0284c7]" size={27} />
+                <a>
+                  <SiBookstack className="hover:text-[#0284c7]" size={27} />
+                </a>
               </Link>
               <Tooltip
                 title="My Learning Store"
@@ -133,10 +135,12 @@ const Navbar = () => {
             </div>
             <div className="text-sm font-[500] cursor-pointer  mr-10 group">
               <Link href="/bookmarks">
-                <BsFillBookmarkStarFill
-                  className="hover:text-[#0284c7]"
-                  size={27}
-                />
+                <a>
+                  <BsFillBookmarkStarFill
+                    className="hover:text-[#0284c7]"
+                    size={27}
+                  />
+                </a>
               </Link>
               <Tooltip
                 title="My Bookmarks"
@@ -227,19 +231,19 @@ const Navbar = () => {
               <div className="py-6 text-sm font-[500] uppercase">
                 <Link href="/bookmarks">
                   <div className="flex gap-2 ">
-                  <BsFillBookmarkStarFill
-                    className="hover:text-[#0284c7]"
-                    size={20}
-                  />
-                  <p>Bookmarks</p>
+                    <BsFillBookmarkStarFill
+                      className="hover:text-[#0284c7]"
+                      size={20}
+                    />
+                    <p>Bookmarks</p>
                   </div>
                 </Link>
               </div>
               <div className="pb-6 text-sm font-[500] uppercase">
                 <Link href="/myLearnings">
                   <div className="flex gap-2">
-                  <SiBookstack className="hover:text-[#0284c7]" size={20} />
-                  <p>My Store</p>
+                    <SiBookstack className="hover:text-[#0284c7]" size={20} />
+                    <p>My Store</p>
                   </div>
                 </Link>
               </div>
