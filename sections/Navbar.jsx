@@ -126,7 +126,10 @@ const Navbar = () => {
               <Link href="/myLearnings">
                 <SiBookstack className="hover:text-[#0284c7]" size={27} />
               </Link>
-              <Tooltip title="My Learning Store" description="This is a store board of what I have learned. Visit the page to benefit from the records" />
+              <Tooltip
+                title="My Learning Store"
+                description="This is a store board of what I have learned. Visit the page to benefit from the records"
+              />
             </div>
             <div className="text-sm font-[500] cursor-pointer  mr-10 group">
               <Link href="/bookmarks">
@@ -135,7 +138,10 @@ const Navbar = () => {
                   size={27}
                 />
               </Link>
-              <Tooltip title="My Bookmarks" description="This is where all the usefull links/resources visited are stored" />
+              <Tooltip
+                title="My Bookmarks"
+                description="This is where all the usefull links/resources visited are stored"
+              />
             </div>
             <div className="flex items-center">
               <div>
@@ -201,7 +207,7 @@ const Navbar = () => {
           <div className="py-4 flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className="py-4 text-sm font-[500]">Home</li>
+                <li className="pb-4 text-sm font-[500]">Home</li>
               </Link>
               <Link href="/skills">
                 <li className="py-4 text-sm font-[500]">Skills</li>
@@ -216,6 +222,51 @@ const Navbar = () => {
                 <li className="py-4 text-sm font-[500]">Contact</li>
               </Link>
             </ul>
+            <div>
+              <hr className="border-blue-400 my-1" />
+              <div className="py-6 text-sm font-[500] uppercase">
+                <Link href="/bookmarks">
+                  <div className="flex gap-2 ">
+                  <BsFillBookmarkStarFill
+                    className="hover:text-[#0284c7]"
+                    size={20}
+                  />
+                  <p>Bookmarks</p>
+                  </div>
+                </Link>
+              </div>
+              <div className="pb-6 text-sm font-[500] uppercase">
+                <Link href="/myLearnings">
+                  <div className="flex gap-2">
+                  <SiBookstack className="hover:text-[#0284c7]" size={20} />
+                  <p>My Store</p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+            <div>
+              {!session ? (
+                <button
+                  type="button"
+                  onClick={() => handleLogin()}
+                  className="text-sm uppercase py-2 px-8 shadow-sm rounded-lg hover:border-[3px] hover:bg-[#0284c7] border-[3px] font-[500] border-[#0284c7] hover:border-[#0284c7] hover:text-white text-black dark:text-white focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 whitespace-nowrap"
+                >
+                  login
+                </button>
+              ) : (
+                <div className="flex items-center space-x-1 sm:space-x-2">
+                  <Image
+                    src={session.user.image}
+                    alt={session.user.name}
+                    className="rounded-full border-2 border-blue-500 cursor-pointer"
+                    width="40"
+                    height="40"
+                    onClick={handleClick}
+                  />
+                  <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
