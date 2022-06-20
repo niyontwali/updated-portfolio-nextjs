@@ -4,8 +4,8 @@ const Card = ({ pic, skill }) => {
   return (
     <>
       <div className="py-2 h-24 pr-2 shadow-xl dark:bg-[#2d333b] dark:shadow-md dark:shadow-gray-700 rounded-xl hover:scale-105 ease-in duration-300 flex items-center justify-center">
-        <div className="grid grid-cols-2 gap-10 justify-center items-center">
-          <div className="m-auto">
+        <div className="grid grid-cols-5 gap-10 justify-center items-center">
+          <div className="col-span-2 m-auto">
             <Image
               src={pic}
               priority
@@ -14,7 +14,7 @@ const Card = ({ pic, skill }) => {
               alt="skill image"
             />
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div className="col-span-3 flex flex-col items-center justify-center">
             <h3>{skill}</h3>
           </div>
         </div>
