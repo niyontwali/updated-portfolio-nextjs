@@ -165,7 +165,6 @@ const Navbar = () => {
                       className="rounded-full border-2 border-blue-500 cursor-pointer"
                       width="40"
                       height="40"
-                      onClick={handleClick}
                     />
                     <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
                   </div>
