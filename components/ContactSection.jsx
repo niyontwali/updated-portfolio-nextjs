@@ -82,8 +82,8 @@ const ContactSection = () => {
                   ></textarea>
                 </div>
                 <div className="flex justify-center">
-                  <button className="bg-[#0284c7] hover:bg-[#0a91d5] dark:bg-[#045d8a] dark:hover:bg-[#0679b3] rounded-xl text-lg font-[500] py-2 px-6 text-gray-100 mt-7">
-                    Send Message
+                  <button className="bg-[#0284c7] hover:bg-[#0a91d5] dark:bg-[#045d8a] dark:hover:bg-[#0679b3] rounded-xl text-lg font-[500] py-2 px-10 text-gray-100 mt-7">
+                    Submit
                   </button>
                 </div>
               </form>

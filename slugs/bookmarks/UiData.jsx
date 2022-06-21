@@ -23,7 +23,7 @@ const UiData = () => {
     return (
       <div className="mt-8 px-10 w-fit">
         <div className="flex justify-center my-4">
-          <BiErrorCircle size={60} className="text-[#e29f72]" />
+          <BiErrorCircle size={60} className="text-red-600" />
         </div>
         <p className="flex items-center text-lg text-red-600 font-bold">
           Oops Something Went Wrong, check your network and reload the page!
