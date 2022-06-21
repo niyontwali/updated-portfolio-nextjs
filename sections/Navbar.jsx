@@ -9,9 +9,8 @@ import {
   BsFillSunFill,
   BsFillMoonFill,
   BsFillBookmarkStarFill,
-  BsBook,
 } from "react-icons/bs";
-import { useSession, signIn } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 import AvatarDropdown from "../components/AvatarDropdown";
 import Tooltip from "../components/Tooltip";
@@ -165,6 +164,7 @@ const Navbar = () => {
                       className="rounded-full border-2 border-blue-500 cursor-pointer"
                       width="40"
                       height="40"
+                      onClick={handleClick}
                     />
                     <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
                   </div>
@@ -207,22 +207,22 @@ const Navbar = () => {
               </p>
             </div>
           </div>
-          <div className="py-4 flex-col">
+          <div className="py-3 flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className="pb-4 text-sm font-[500]">Home</li>
+                <li className="pb-3 text-sm font-[500]">Home</li>
               </Link>
               <Link href="/skills">
-                <li className="py-4 text-sm font-[500]">Skills</li>
+                <li className="py-3 text-sm font-[500]">Skills</li>
               </Link>
               <Link href="/projects">
-                <li className="py-4 text-sm font-[500]">Projects</li>
+                <li className="py-3 text-sm font-[500]">Projects</li>
               </Link>
               <Link href="/blog">
-                <li className="py-4 text-sm font-[500]">Blog</li>
+                <li className="py-3 text-sm font-[500]">Blog</li>
               </Link>
               <Link href="/contact">
-                <li className="py-4 text-sm font-[500]">Contact</li>
+                <li className="py-3 text-sm font-[500]">Contact</li>
               </Link>
             </ul>
             <div>
@@ -257,16 +257,26 @@ const Navbar = () => {
                   login
                 </button>
               ) : (
-                <div className="flex items-center space-x-1 sm:space-x-2">
-                  <Image
-                    src={session.user.image}
-                    alt={session.user.name}
-                    className="rounded-full border-2 border-blue-500 cursor-pointer"
-                    width="40"
-                    height="40"
-                    onClick={handleClick}
-                  />
-                  <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
+                <div>
+                  <div className="flex items-center space-x-1 sm:space-x-2">
+                    <Image
+                      src={session.user.image}
+                      alt={session.user.name}
+                      className="rounded-full border-2 border-blue-500 cursor-pointer"
+                      width="40"
+                      height="40"
+                    />
+                    <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => signOut()}
+                      className="text-sm uppercase py-2 px-6 shadow-sm rounded-lg hover:border-[3px] hover:bg-[#0284c7] border-[3px] font-[500] border-[#0284c7] hover:border-[#0284c7] hover:text-white text-black dark:text-white focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 whitespace-nowrap"
+                    >
+                      logout
+                    </button>
+                  </div>
                 </div>
               )}
             </div>

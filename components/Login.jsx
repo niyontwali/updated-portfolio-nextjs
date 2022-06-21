@@ -36,10 +36,6 @@ const Login = () => {
       Icon: github,
     },
     {
-      name: "twitter",
-      Icon: twitter,
-    },
-    {
       name: "google",
       Icon: google,
     },
@@ -47,7 +43,7 @@ const Login = () => {
 
   const handleAuthLogin = (provider) => () => signIn(provider);
   return (
-    <div className="w-full min-h-screen pt-[20vh] px-4">
+    <div className="w-full min-h-screen pt-[30vh] px-4">
       <div className="bg-gray-100 dark:bg-[#2d333b] max-w-[450px] mx-auto mt-[5vh] rounded-xl shadow-xl shadow-gray-300 dark:shadow-lg dark:shadow-gray-900">
         <div className="mx-4 lg:px-12 items-center py-6">
           <div className="flex flex-col items-center justify-center py-4">
