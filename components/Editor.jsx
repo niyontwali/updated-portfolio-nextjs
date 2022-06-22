@@ -49,13 +49,6 @@ const Editor = ({
   // Mutation
   const [addLearning] = useMutation(ADD_LEARNING, {
     variables: { title, excerpt, content, category, date },
-    update(cache, { data: { addLearning } }) {
-      const { allLearnings } = cache.readQuery({ query: GET_LEARNINGS });
-      cache.writeQuery({
-        query: GET_LEARNINGS,
-        data: { allLearnings: [...allLearnings, addLearning] },
-      });
-    },
   });
 
   const handleSubmit = (e) => {
@@ -95,7 +88,7 @@ const Editor = ({
           rows="1"
           value={excerpt}
           onChange={(e) => setExcerpt(e.target.value)}
-          placeholder="Learning Slug"
+          placeholder="Learning Excerpt"
           disabled={disabled}
           className="w-full text-md font-bold leading-snug px-8 py-2 bg-gray-300 dark:bg-[#2d333b] rounded-lg outline-none appearance-none mt-3 resize-none disabled:cursor-not-allowed"
         ></textarea>

@@ -6,7 +6,8 @@ const LearningsPost = ({ learning }) => {
   console.log("Data", learning);
   return (
     <article className="pt-28 px-6 lg:px-40 prose dark:prose-invert  sm:prose-lg lg:prose-lg max-w-[1300px] ">
-      <h2 className="border-b-2 border-gray-400">{learning.date}</h2>
+      <p className="font-bold text-4xl">{learning.title}</p>
+      <p className="border-b-2 border-gray-400">{learning.date}</p>
       <ReactMarkdown children={learning.content} components={MDComponents} />
     </article>
   );
