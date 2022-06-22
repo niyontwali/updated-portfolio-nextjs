@@ -49,9 +49,9 @@ const Navbar = () => {
     const currentTheme = theme === "system" ? systemTheme : theme;
 
     if (currentTheme === "dark") {
-      return <BsFillSunFill size={24} onClick={() => setTheme("light")} />;
+      return <BsFillSunFill size={24} className="hover:scale-110 hover:rotate-180 ease-linear duration-150" onClick={() => setTheme("light")} />;
     } else {
-      return <BsFillMoonFill size={24} onClick={() => setTheme("dark")} />;
+      return <BsFillMoonFill size={24} className="hover:scale-110 hover:rotate-180 duration-150" onClick={() => setTheme("dark")} />;
     }
   };
 

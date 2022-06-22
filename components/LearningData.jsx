@@ -1,22 +1,19 @@
 import { useQuery } from "@apollo/client";
 import { BiErrorCircle, BiSad } from "react-icons/bi";
-import { GET_BOOKMARKS_BY_CATEGORY } from "../../services/bookmarksqueries";
 
-import Bookmark from "../../skeletons/Bookmark";
-import TechnicalCard from "./TechnicalCard";
+import { GET_LEARNINGS } from "../services/learningsqueries";
+import Learning from "../skeletons/Learning";
+import LearningsCard from "./LearningsCard";
 
-const TechnicalData = () => {
-  
-   const { loading, error, data } = useQuery(GET_BOOKMARKS_BY_CATEGORY, {
-    variables: { category: "technical" },
-  });
+const LearningData = () => {
+  const { loading, error, data } = useQuery(GET_LEARNINGS);
 
   if (loading)
     return (
-      <div className="px-10 mt-4 flex flex-col gap-4">
-        <Bookmark />
-        <Bookmark />
-        <Bookmark />
+      <div className="lg:px-10 mt-4 flex flex-col gap-4">
+        <Learning />
+        <Learning />
+        <Learning />
       </div>
     );
   if (error)
@@ -31,32 +28,30 @@ const TechnicalData = () => {
       </div>
     );
 
-  if (data.allBookmarks.length === 0)
+  if (data.allLearnings.length === 0)
     return (
       <div className="mt-8 px-10 w-fit">
         <div className="flex justify-center my-4">
           <BiSad size={60} className="text-[#e29f72]" />
         </div>
         <p className="flex items-center text-lg text-[#0284c7] font-bold text-center lg:text-left">
-          Currently no bookmarks related to this category available!
+          Currently no Learned resources available!
         </p>
       </div>
     );
-    
-
   return (
-    <div className="px-10">
+    <>
       {!loading &&
         !error &&
-        data.allBookmarks.map((bookmark) => {
+        data.allLearnings.map((learning) => {
           return (
-            <div className="mt-4" key={bookmark.id}>
-              <TechnicalCard bookmark={bookmark} />
+            <div className="mt-4" key={learning.id}>
+              <LearningsCard learning={learning} />
             </div>
           );
         })}
-    </div>
+    </>
   );
 };
 
-export default TechnicalData;
+export default LearningData;

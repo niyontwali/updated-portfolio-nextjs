@@ -32,6 +32,11 @@ function MyApp({ Component, pageProps, session }) {
             merge(existing, incoming) {
               return incoming
             }
+          },
+          allLearnings: {
+            merge(existing, incoming) {
+              return incoming
+            }
           }
         }
       }
