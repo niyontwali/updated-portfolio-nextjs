@@ -12,7 +12,7 @@ const BookmarkDetails = ({ title, description, icon, bookmarkData }) => {
             </div>
           </div>
           {/* Grid Two */}
-          <div className="min-h-screen order-1 lg:order-2 lg:col-span-8 lg:px-24 pt-24 lg:pt-32 pb-10 lg:right-0 border-l-2 shadow-lg border-slate-300">
+          <div className="min-h-screen order-1 lg:order-2 lg:col-span-8 lg:px-24 pt-24 lg:pt-32 pb-10 lg:right-0 border-l-2 shadow-lg border-slate-300 dark:border-gray-900">
             <div className="px-10">
               <h3 className="flex text-3xl tracking-wide font-bold items-center gap-3">
                 {title} {icon}

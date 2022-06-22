@@ -14,14 +14,14 @@ const Main = () => {
         <div>
           <h1 className="py-4 text-gray-700 dark:text-gray-300">
             Hi, I'm{" "}
-            <span className="text-[#0284c7] border-b-2 border-b-transparent hover:cursor-pointer hover:border-b-[#0284c7]">
+            <span className="text-[#0284c7] border-b-2 border-b-transparent hover:cursor-pointer hover:border-b-[#0284c7] ">
               John
             </span>
           </h1>
           <h1 className="py-4 text-gray-700 dark:text-gray-300">
             A Full-stack Developer
           </h1>
-          <p className="text-gray-600 max-w-[70%] m-auto font-[500] dark:text-gray-400">
+          <p className="text-gray-600 max-w-[70%] m-auto font-[500] dark:text-gray-400 hover:scale-110 duration-300 ease-in-out">
             I love exploring and building exceptional scalable digital
             experiences. I use JavaScript, TypeScrip and frameworks like
             Node.js, graphQL, Express, React, Next to develop full-stack web

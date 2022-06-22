@@ -3,7 +3,7 @@ import Bookmark from "../components/Bookmark";
 
 export default function Bookmarks() {
   return (
-    <div>
+    <div className="min-h-screen">
       <Head>
         <title>John | My Bookmarks</title>
         <meta name="My bookmarks" content="Bookmarks" />
