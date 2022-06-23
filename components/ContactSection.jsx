@@ -2,35 +2,59 @@
 import Image from "next/image";
 import profileImage from "../public/assets/profileImage.jpg";
 import { FiPhoneCall } from "react-icons/fi";
+import { ImSpinner2 } from "react-icons/im";
 import { AiOutlineMail } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const ContactSection = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    formState,
+    reset,
     formState: { errors },
   } = useForm();
+
+  const { isSubmitting } = formState;
 
   const onSubmitForm = async (values) => {
     let config = {
       method: "post",
-      url: "http://localhost:3000/api/contact",
+      url: "https://njohn.netlify.app/api/contact",
       headers: {
         "Content-Type": "application/json",
       },
-      data: values
+      data: values,
     };
-    try{
+    try {
       const response = await axios(config);
-      if (response.data.status === 200) {
-        console.log('Sucess')
+      if (response.status === 200) {
+        toast(`${response.data.message}`, {
+          style: {
+            border: "1px solid #0a91d5",
+            position: "relative",
+            background: "#0284c7",
+            color: "white",
+          },
+        });
+        reset({
+          fullname: "",
+          phone: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
       }
-    } catch(err) {
-      console.error(err.message)
+    } catch (err) {
+      console.error(err.message);
     }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    });
   };
 
   return (
@@ -78,7 +102,7 @@ const ContactSection = () => {
                       className="border-2 rounded-lg p-2 flex border-gray-300 dark:border-gray-700 dark:bg-transparent outline-none"
                       type="text"
                     />
-                    <span className="text-red-600">
+                    <span className="text-red-600 px-1 text-sm">
                       {errors.fullname?.type === "required" &&
                         "Full names are required"}
                     </span>
@@ -93,7 +117,7 @@ const ContactSection = () => {
                       className="border-2 rounded-lg p-2 flex border-gray-300 dark:border-gray-700 dark:bg-transparent outline-none"
                       type="text"
                     />
-                    <span className="text-red-600">
+                    <span className="text-red-600 px-1 text-sm">
                       {errors.phone?.type === "required" &&
                         "Phone number is required"}
                     </span>
@@ -105,16 +129,11 @@ const ContactSection = () => {
                     name="email"
                     {...register("email", {
                       required: true,
-                      pattern: {
-                        value:
-                          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                        message: "Please enter a valid email",
-                      },
                     })}
                     className="border-2 rounded-lg p-2 flex border-gray-300 dark:border-gray-700 dark:bg-transparent outline-none"
-                    type="text"
+                    type="email"
                   />
-                  <span className="text-red-600">
+                  <span className="text-red-600 px-1 text-sm">
                     {errors.email?.type === "required" && "Email is required"}
                   </span>
                 </div>
@@ -128,7 +147,7 @@ const ContactSection = () => {
                     className="border-2 rounded-lg p-2 flex border-gray-300 dark:border-gray-700 dark:bg-transparent outline-none"
                     type="text"
                   />
-                  <span className="text-red-600">
+                  <span className="text-red-600 px-1 text-sm">
                     {errors.subject?.type === "required" &&
                       "Subject field is required"}
                   </span>
@@ -138,18 +157,29 @@ const ContactSection = () => {
                   <textarea
                     name="message"
                     {...register("message", { required: true })}
-                    className="border-2 rounded-lg p-2 border-gray-300 dark:border-gray-700 dark:bg-transparent outline-none"
+                    className="border-2 rounded-lg p-2 border-gray-300 dark:border-gray-700 dark:bg-transparent outline-none "
                     rows="4"
                     type="email"
                   ></textarea>
-                  <span className="text-red-600">
+                  <span className="text-red-600 px-1 text-sm">
                     {errors.message?.type === "required" &&
                       "Message content is required"}
                   </span>
                 </div>
                 <div className="flex justify-center">
-                  <button className="bg-[#0284c7] hover:bg-[#0a91d5] dark:bg-[#045d8a] dark:hover:bg-[#0679b3] rounded-xl text-lg font-[500] py-2 px-10 text-gray-100 mt-7 focus:ring-4 ring-blue-400">
-                    Submit
+                  <button
+                    disabled={isSubmitting}
+                    className={`bg-[#0284c7] ${isSubmitting ? null : "hover:bg-[#0a91d5]"} dark:bg-[#045d8a] ${isSubmitting ? null : "dark:hover:bg-[#0679b3]"} rounded-xl text-lg font-[500] py-2 px-10 text-gray-100 mt-7 ${
+                      isSubmitting ? "disabled:cursor-not-allowed" : null
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <span className="text-white px-4 py-[2px] flex justify-center items-center">
+                        <ImSpinner2 size={25} className="animate-spin" />
+                      </span>
+                    ) : (
+                      "Submit"
+                    )}
                   </button>
                 </div>
               </form>

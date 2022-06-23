@@ -5,6 +5,7 @@ import NProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
 import { ApolloProvider, ApolloClient, InMemoryCache} from 
 '@apollo/client';
+import { Toaster } from 'react-hot-toast';
 
 import Layout from "../sections/Layout";
 import Loader from "../components/Loader";
@@ -52,6 +53,7 @@ function MyApp({ Component, pageProps, session }) {
     <SessionProvider session={session}>
       <ThemeProvider enableSystem={true} attribute="class">
         <ApolloProvider client={client}>
+        <Toaster />
         {/* {loading ? (
           <Loader />
         ) : ( */}
