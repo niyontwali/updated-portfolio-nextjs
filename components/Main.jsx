@@ -23,7 +23,7 @@ const Main = () => {
           </h1>
           <p className="text-gray-600 max-w-[70%] m-auto font-[500] dark:text-gray-400 hover:scale-110 duration-300 ease-in-out">
             I love exploring and building exceptional scalable digital
-            experiences. I use JavaScript, TypeScrip and frameworks like
+            experiences. I use JavaScript, TypeScript and frameworks like
             Node.js, graphQL, Express, React, Next to develop full-stack web
             apps. I also use react native and flutter to develop mobile apps.
           </p>

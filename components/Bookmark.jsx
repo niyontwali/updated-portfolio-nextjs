@@ -4,7 +4,7 @@ import BookmarkCategories from "./BookmarkCategories";
 
 const Bookmark = () => {
   return (
-    <div className="w-full lg:h-screen">
+    <div className="w-full lg:min-h-screen">
       <div className="m-auto px-4 sm:px-8 md:px-52 pt-24 lg:pt-28 w-full">
         <div className="flex items-center space-x-3">
           <h2 className="tracking-wide">Bookmarks</h2>
@@ -19,7 +19,7 @@ const Bookmark = () => {
           </p>
         </div>
         <div className="mt-10">
-          <div className="flex flex-col justify-start items-start gap-3 font-[500]">
+          <div className="flex flex-col justify-start items-start gap-3 font-[500] lg:mb-10">
             <BookmarkCategories />
           </div>
         </div>
