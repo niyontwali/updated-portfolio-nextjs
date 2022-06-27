@@ -10,6 +10,8 @@ import portfolio1 from "./public/assets/projects/portfolio1.jpg";
 import portfolio2 from "./public/assets/projects/portfolio2.jpg";
 import chicken1 from "./public/assets/projects/chicken1.jpg";
 import chicken2 from "./public/assets/projects/chicken2.jpg";
+import expense1 from "./public/assets/projects/expense1.jpg";
+import expense2 from "./public/assets/projects/expense2.jpg";
 
 
 export const projects = [
@@ -66,6 +68,7 @@ export const projects = [
       "ReactJs",
       "React-bootstrap",
       "Bootstrap CSS",
+      "Context API"
     ],
     image1: chicken1,
     image2: chicken2,
@@ -75,6 +78,24 @@ export const projects = [
   },
   {
     id: 4,
+    position: "Frontend Developer | Personal",
+    name: "Expense Tracker",
+    stacks: [
+      "Figma",
+      "JavaScript",
+      "ReactJs",
+      "Tailwindcss",
+      "React-hook-form",
+      "Context API"
+    ],
+    image1: expense1,
+    image2: expense2,
+    link: "https://john-expense-tracker.netlify.app/",
+    description:
+      "This is an application which tracks a user's income and expenses. It helps them store their incomes, expenses and calculates their balance. This is a simple application but has great functionalities under the hood like Context API to manage state globally and react-hook-form which helps in form error handling and out of the box subscriptions. The purpose of this app was to continue practicing how to use the context api with useReducer and dispatch. The skills and experience I got from this project can be used on a larger similar project in terms of stack or businesswise."
+  },
+  {
+    id: 5,
     position: "Full Stack Developer | Andela",
     name: "FlashCard",
     stacks: [
@@ -95,7 +116,7 @@ export const projects = [
       "This is a project was created right after the above Management System App where I now wanted to use GraphQL and TypeScript to see how it would work together. I also used Prisma ORM for the first time and it was the easiest ORM I ever level up on so fast and was able to grasp well its concepts. This is a simple flashcard application for amusement and can be used by movie lovers to evaluate how well they know the movies they have ever watched. It has an incredible dashboard for all CRUD(Create, Read, Update and Delete) operations."
   },
   {
-    id: 5,
+    id: 6,
     position: "Full Stack | Personal",
     name: "Deprecated Personal Portfolio",
     stacks: [
@@ -115,7 +136,7 @@ export const projects = [
       "This project was my previous portfolio and obviously you can see there was a lot of improvement and new skills gained. When I was creating the new portfolio I imagined how coding can really feel tasty and challenging but afterall you get to learn a lot of new skills you can always imagine and appreciate yourself. The whole journey to reach the stage I am wasn't easy, among the challenges met, there is Debugging Tensions. Debugging is a critical skill, but most people aren't born with a mastery of it. Debugging is frustrating. You just wrote a bunch of code, and it doesn't work even though you're pretty sure it should. I learnt a lot of tools that helped to reduce the amount of time spent while debugging and some of them even helped get rid of some bugs during the development and these include Browser Developer Tool, ESLint as well as using TypeScript which is awesome when it comes to type-checking and prevents one from encounting bugs during the runtime."
   },
   {
-    id: 6,
+    id: 7,
     position: "Frontend Developer | Personal",
     name: "epicLib - In progress",
     stacks: ["Figma", "JavaScript", "HTML", "Tailwindcss"],
