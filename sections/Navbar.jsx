@@ -5,22 +5,21 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { SiBookstack } from "react-icons/si";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import {
   BsFillSunFill,
   BsFillMoonFill,
   BsFillBookmarkStarFill,
 } from "react-icons/bs";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 import AvatarDropdown from "../components/AvatarDropdown";
 import Tooltip from "../components/Tooltip";
 import Logo from "../components/Logo";
 
-const Navbar = () => {
+const Navbar = ({ open, handleClick, handleOutsideClick }) => {
   // State for toggling the mobile menu component
   const [isOpen, setIsOpen] = useState(false);
-
-  const [open, setOpen] = useState(false);
 
   const [mounted, setMounted] = useState(false);
 
@@ -49,9 +48,21 @@ const Navbar = () => {
     const currentTheme = theme === "system" ? systemTheme : theme;
 
     if (currentTheme === "dark") {
-      return <BsFillSunFill size={24} className="hover:scale-110 hover:rotate-180 ease-linear duration-150" onClick={() => setTheme("light")} />;
+      return (
+        <BsFillSunFill
+          size={24}
+          className="hover:scale-110 hover:rotate-180 ease-linear duration-150"
+          onClick={() => setTheme("light")}
+        />
+      );
     } else {
-      return <BsFillMoonFill size={24} className="hover:scale-110 hover:rotate-180 duration-150" onClick={() => setTheme("dark")} />;
+      return (
+        <BsFillMoonFill
+          size={24}
+          className="hover:scale-110 hover:rotate-180 duration-150"
+          onClick={() => setTheme("dark")}
+        />
+      );
     }
   };
 
@@ -63,14 +74,11 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
   const handleLogin = () => push(`/auth/login?callbackUrl=${asPath}`);
 
   return (
     <div
+      onClick={handleOutsideClick}
       className={
         shadow
           ? "fixed w-full h-[70px] shadow-xl bg-[#f3f6f8] dark:bg-[#2d333b] z-[100]"
@@ -96,7 +104,7 @@ const Navbar = () => {
               </a>
             </Link>
             <Link href="/skills">
-            <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
+              <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
                 <span>Skills</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all group-hover:w-full"></span>
               </a>
@@ -108,13 +116,13 @@ const Navbar = () => {
               </a>
             </Link>
             <Link href="/blog">
-            <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
+              <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
                 <span>BLOG</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all group-hover:w-full"></span>
               </a>
             </Link>
             <Link href="/contact">
-            <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
+              <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
                 <span>Contact</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all group-hover:w-full"></span>
               </a>
@@ -162,16 +170,24 @@ const Navbar = () => {
                     login
                   </button>
                 ) : (
-                  <div className="flex items-center space-x-1 sm:space-x-2">
+                  <div
+                    className="flex items-center space-x-1 sm:space-x-2 cursor-pointer"
+                    onClick={handleClick}
+                  >
                     <Image
                       src={session.user.image}
                       alt={session.user.name}
-                      className="rounded-full border-2 border-blue-500 cursor-pointer"
+                      className="rounded-full border-2 border-blue-500"
                       width="40"
                       height="40"
-                      onClick={handleClick}
                     />
                     <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
+                    <RiArrowDropDownLine
+                      className={`text-gray-500 dark:text-gray-300 ${
+                        open && "rotate-180"
+                      }`}
+                      size={30}
+                    />
                   </div>
                 )}
               </div>
@@ -182,6 +198,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      {/* Mobile relate */}
       <div
         className={
           isOpen
@@ -206,14 +223,10 @@ const Navbar = () => {
                 <AiOutlineClose size={25} />
               </div>
             </div>
-            <div className="border-b border-[#0284c7] my-4">
-              <p className="w-[85%] md:w-[90%] py-4 font-[500]">
-                We can work together to build something incredible
-              </p>
-            </div>
+            <div className="border-b border-[#0284c7] my-4"></div>
           </div>
           <div className="py-3 flex-col">
-            <ul className="uppercase">
+            <ul className="uppercase" onClick={() => setIsOpen(false)}>
               <Link href="/">
                 <li className="pb-3 text-sm font-[500]">Home</li>
               </Link>
@@ -230,7 +243,7 @@ const Navbar = () => {
                 <li className="py-3 text-sm font-[500]">Contact</li>
               </Link>
             </ul>
-            <div>
+            <div onClick={() => setIsOpen(false)}>
               <hr className="border-blue-400 my-1" />
               <div className="py-6 text-sm font-[500] uppercase">
                 <Link href="/bookmarks">
@@ -273,11 +286,11 @@ const Navbar = () => {
                     />
                     <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
                   </div>
-                  <div>
+                  <div className="mt-3">
                     <button
                       type="button"
                       onClick={() => signOut()}
-                      className="text-sm uppercase py-2 px-6 shadow-sm rounded-lg hover:border-[3px] hover:bg-[#0284c7] border-[3px] font-[500] border-[#0284c7] hover:border-[#0284c7] hover:text-white text-black dark:text-white focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 whitespace-nowrap"
+                      className="text-sm uppercase py-2 px-6 shadow-sm rounded-full hover:border-[3px] bg-[#0284c7] font-[500] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 whitespace-nowrap"
                     >
                       logout
                     </button>
