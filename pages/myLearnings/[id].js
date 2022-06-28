@@ -5,6 +5,7 @@ import { BiErrorCircle, BiSad } from "react-icons/bi";
 import Loader from "../../components/Loader";
 import { GET_LEARNING } from "../../services/learningsqueries";
 import LearningsPost from "../../components/LearningsPost";
+import Head from "next/head";
 
 const LearningDetail = () => {
   const router = useRouter();
@@ -18,7 +19,7 @@ const LearningDetail = () => {
   if (loading)
     return (
       <div className="h-screen">
-        <Loader/>
+        <Loader />
       </div>
     );
   if (error)
@@ -34,9 +35,16 @@ const LearningDetail = () => {
     );
 
   return (
-    <div className="min-h-screen">
-      {!loading && !error && <LearningsPost learning={data.oneLearning} />}
-    </div>
+    <>
+      <Head>
+        <title>John | My Learning - {id}</title>
+        <meta name="description" content="my learning page" />
+        <link rel="icon" href="/titleLogo.jpg" />
+      </Head>
+      <div className="min-h-screen">
+        {!loading && !error && <LearningsPost learning={data.oneLearning} />}
+      </div>
+    </>
   );
 };
 
