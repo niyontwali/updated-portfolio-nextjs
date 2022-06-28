@@ -24,11 +24,11 @@ const LearningDetail = () => {
     );
   if (error)
     return (
-      <div className="mt-8 px-10 w-fit">
-        <div className="flex justify-center my-4">
+      <div className="pt-[8vh] px-10 flex justify-center items-center min-h-screen ">
+        <div className="flex">
           <BiErrorCircle size={60} className="text-red-600" />
         </div>
-        <p className="flex items-center text-lg text-red-600 font-bold">
+        <p className=" text-lg text-red-600 font-bold ">
           Oops Something Went Wrong, check your network and reload the page!
         </p>
       </div>
