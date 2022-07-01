@@ -1,45 +1,42 @@
-import html from "../public/assets/skills/html.png";
-import css from "../public/assets/skills/css.png";
-import javascript from "../public/assets/skills/javascript.png";
-import node from "../public/assets/skills/node.png";
-import react from "../public/assets/skills/react.png";
-import tailwind from "../public/assets/skills/tailwind.png";
-import mongo from "../public/assets/skills/mongo.png";
-import github from "../public/assets/skills/github.png";
-import firebase from "../public/assets/skills/firebase.png";
-import git from "../public/assets/skills/git.png";
-import nextjs from "../public/assets/skills/nextjs.png";
-import postgres from "../public/assets/skills/postgres.png";
-import reactnative from "../public/assets/skills/reactnative.png";
-import figma from "../public/assets/skills/figma.png";
-import bootstrap from "../public/assets/skills/bootstrap.png";
-import aws from "../public/assets/skills/aws.png";
-import Card from "./Card";
+/* eslint-disable react/no-unescaped-entities */
+import {programmingSkills, technicalSkills} from "../skills";
+import ProgSkillsList from "./ProgSkillsList";
+import TechSkillsList from "./TechSkillsList";
 
 const SkillsCards = () => {
   return (
-    <div className="pt-20 w-full lg:h-screen sm:px-6 md:px-14 lg:px-48">
-      <div className="mx-auto flex flex-col justify-center h-full">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 justify-center">
-          <Card pic={html} skill="HTML5" />
-          <Card pic={css} skill="CSS3" />
-          <Card pic={figma} skill="Figma" />
-          <Card pic={javascript} skill="JavaScript" />
-          <Card pic={node} skill="NodeJs" />
-          <Card pic={react} skill="ReactJs" />
-          <Card pic={reactnative} skill="React-native" />
-          <Card pic={nextjs} skill="NextJs" />
-          <Card pic={tailwind} skill="Tailwind CSS" />
-          <Card pic={bootstrap} skill="Bootstrap" />
-          <Card pic={aws} skill="Cloud DevOps" />
-          <Card pic={postgres} skill="PostgreSQL" />
-          <Card pic={mongo} skill="Mongo DB" />
-          <Card pic={firebase} skill="Firebase" />
-          <Card pic={github} skill="Github" />
-          <Card pic={git} skill="Git Version Control" />
+    <>
+      <div className="py-20 w-full px-6 md:px-14 lg:px-48">
+        <div className="containter mt-10 lg:mt-14 flex justify-center flex-col items-center">
+          <h3 className="text-xl tracking-wider text-center py-2 px-12 bg-gray-200 dark:bg-gray-700 rounded-t-full w-fit">
+            Programming & Design Skills
+          </h3>
+          <p className="my-10 tracking-wider text-lg text-gray-600 dark:text-gray-300 text-center max-w-[600px] mx-auto">
+            I am an <strong>inquisitive developer</strong> who embrace and adapt
+            quickly to new responsibilities, am enthusiastic to gain new
+            knowledge, skills, and techniques. I am able to level up on any
+            skill in case it's one of the project requierements.
+          </p>
+          <div className="flex gap-2 flex-wrap justify-center">
+            {programmingSkills.map((skill) => (
+              <div key={skill.id} className="p-2">
+                <ProgSkillsList programming={skill} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="containter mt-10">
+          <h3 className="text-xl mx-auto py-2 px-12 mb-8 bg-gray-200 dark:bg-gray-700 rounded-t-full w-fit">Technical Skills</h3>
+          <div className="max-w-[700px] mx-auto">
+            {technicalSkills.map((skill) => (
+              <div key={skill.id}>
+                <TechSkillsList technical={skill} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
