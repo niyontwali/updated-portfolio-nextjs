@@ -10,7 +10,9 @@ const LearningData = () => {
 
   if (loading)
     return (
-      <div className="lg:px-10 mt-4 flex flex-col gap-4">
+      <div className="mt-4 flex flex-col gap-4">
+        <Learning />
+        <Learning />
         <Learning />
         <Learning />
         <Learning />
