@@ -3,7 +3,7 @@ import { BiErrorCircle, BiSad } from "react-icons/bi";
 
 import { GET_LEARNINGS } from "../services/learningsqueries";
 import Learning from "../skeletons/Learning";
-import Pagination from "./Pagination.jsx"
+import PaginatedLearningCards from "./PaginatedLearningCards.jsx"
 
 const LearningData = () => {
   const { loading, error, data } = useQuery(GET_LEARNINGS);
@@ -45,7 +45,7 @@ const LearningData = () => {
     <>
       {!loading &&
         !error &&
-        <Pagination learnings = {data.allLearnings} />
+        <PaginatedLearningCards learnings = {data.allLearnings} />
         }
     </>
   );

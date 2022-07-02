@@ -17,6 +17,8 @@ const MobileData = () => {
         <Bookmark />
         <Bookmark />
         <Bookmark />
+        <Bookmark />
+        <Bookmark />
       </div>
     );
   if (error)

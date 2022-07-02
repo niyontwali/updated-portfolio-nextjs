@@ -17,6 +17,8 @@ const DxData = () => {
         <Bookmark />
         <Bookmark />
         <Bookmark />
+        <Bookmark />
+        <Bookmark />
       </div>
     );
   if (error)

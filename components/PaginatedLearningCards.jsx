@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import LearningsCard from "./LearningsCard";
 
-const Pagination = ({ learnings }) => {
+const PaginatedLearningCards = ({ learnings }) => {
   const items = learnings;
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -55,4 +55,4 @@ const Pagination = ({ learnings }) => {
   );
 };
 
-export default Pagination;
+export default PaginatedLearningCards;

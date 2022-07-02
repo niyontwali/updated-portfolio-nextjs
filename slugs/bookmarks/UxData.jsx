@@ -17,6 +17,8 @@ const UxData = () => {
         <Bookmark />
         <Bookmark />
         <Bookmark />
+        <Bookmark />
+        <Bookmark />
       </div>
     );
   if (error)
