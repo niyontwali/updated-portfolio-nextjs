@@ -17,7 +17,7 @@ const LearningsCard = ({ learning }) => {
             <p className="py-4">{learning.excerpt}</p>
           </div>
           <Link href={`/myLearnings/${learning.id}`}>
-            <a className="font-bold text-[#0284c7] dark:text-gray-300 flex items-center hover:bg-gray-300 hover:scale-110 ease-in-out duration-100 dark:hover:bg-gray-900 py-1 px-4 w-fit rounded-xl bg-slate-300 dark:bg-gray-800">
+            <a className="font-bold text-[#206a75] dark:text-gray-300 flex items-center hover:bg-gray-300 hover:scale-110 ease-in-out duration-100 dark:hover:bg-gray-900 py-1 px-4 w-fit rounded-xl bg-slate-300 dark:bg-gray-800">
               Read More
             </a>
           </Link>

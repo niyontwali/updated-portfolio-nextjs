@@ -131,3 +131,34 @@ html {
     background-color: rgb(209 213 219 / var(--tw-bg-opacity));
   }
 }
+
+.pagination {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  gap: 2px;
+}
+.pagination .page-num {
+  padding: 5px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-weight: 400;
+}
+.pagination .page-num-mod {
+  padding: 5px 12px;
+  cursor: pointer;
+  border-radius: 5rem;
+  font-weight: 400;
+}
+.pagination .page-num:hover {
+  background-color: #5ab1bb;
+}
+.pagination .page-num-mod:hover {
+  color: #206a79;
+}
+.pagination .active {
+  background-color: #5ab1bb;
+  font-weight: 700;
+}
