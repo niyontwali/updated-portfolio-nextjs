@@ -162,3 +162,31 @@ html {
   background-color: #5ab1bb;
   font-weight: 700;
 }
+
+.custom-animation {
+  animation: left-to-right 15s ease-in forwards infinite alternate
+}
+.custom-animation:hover {
+  animation-play-state: paused
+}
+
+@keyframes left-to-right {
+  0% {
+    transform: translateX(-20vw)
+  }
+  15% {
+    transform: translateX(20vw)
+  }
+  33% {
+    transform: translateY(80vh)
+  }
+  66% {
+    transform: translateX(80vw) translateY(80vh)
+  }
+  80% {
+    transform: translateX(40vw) translateY(50vh)
+  }
+  100% {
+    transform: translateX(80vw)
+  }
+}

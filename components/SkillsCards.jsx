@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import {programmingSkills, technicalSkills} from "../skills";
+import { programmingSkills, technicalSkills } from "../skills";
 import ProgSkillsList from "./ProgSkillsList";
 import TechSkillsList from "./TechSkillsList";
 
 const SkillsCards = () => {
   return (
     <>
-      <div className="py-20 w-full px-6 md:px-14 lg:px-48">
+      <div className="py-20 w-full px-6 md:px-14 lg:px-48 relative">
+        <div className="custom-animation absolute w-10 h-10 lg:w-[100px] lg:h-[100px] rounded-full bg-gray-200 dark:bg-gray-600 opacity-30"></div>
         <div className="containter mt-10 lg:mt-14 flex justify-center flex-col items-center">
           <h3 className="text-xl tracking-wider text-center py-2 px-12 bg-gray-200 dark:bg-gray-700 rounded-t-full w-fit">
             Programming & Design Skills
@@ -26,7 +27,9 @@ const SkillsCards = () => {
           </div>
         </div>
         <div className="containter mt-10">
-          <h3 className="text-xl mx-auto py-2 px-12 mb-8 bg-gray-200 dark:bg-gray-700 rounded-t-full w-fit">Technical Skills</h3>
+          <h3 className="text-xl mx-auto py-2 px-12 mb-8 bg-gray-200 dark:bg-gray-700 rounded-t-full w-fit">
+            Technical Skills
+          </h3>
           <div className="max-w-[700px] mx-auto">
             {technicalSkills.map((skill) => (
               <div key={skill.id}>

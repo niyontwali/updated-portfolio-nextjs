@@ -100,31 +100,31 @@ const Navbar = ({ open, handleClick, handleOutsideClick }) => {
             <Link href="/">
               <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
                 <span>Home</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all duration-300 group-hover:w-full"></span>
               </a>
             </Link>
             <Link href="/skills">
               <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
                 <span>Skills</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all duration-300 group-hover:w-full"></span>
               </a>
             </Link>
             <Link href="/projects">
               <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
                 <span>Projects</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all duration-300 group-hover:w-full"></span>
               </a>
             </Link>
             <Link href="/blog">
               <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
                 <span>BLOG</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all duration-300 group-hover:w-full"></span>
               </a>
             </Link>
             <Link href="/contact">
               <a className="text-sm uppercase font-[500] hover:text-[#0284c7] relative group">
                 <span>Contact</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-[3px] bg-[#0284c7] transition-all duration-300 group-hover:w-full"></span>
               </a>
             </Link>
           </ul>
@@ -184,7 +184,7 @@ const Navbar = ({ open, handleClick, handleOutsideClick }) => {
                     <p>Hi, {session.user.name?.split(" ")?.[1] ?? "Admin"}</p>
                     <RiArrowDropDownLine
                       className={`text-gray-500 dark:text-gray-300 ${
-                        open && "rotate-180"
+                        open && "rotate-180 transition-all duration-300"
                       }`}
                       size={30}
                     />
