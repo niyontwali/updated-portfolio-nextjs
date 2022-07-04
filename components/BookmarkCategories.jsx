@@ -41,7 +41,7 @@ const BookmarkCategories = () => {
       <Link href="/bookmarks/technical">
         <li>
           <span className="border-2 border-transparent hover:border-4 border-b-[#8fcae8]">
-            Technical Education
+            Non-Technical Skills(NTS)
           </span>
         </li>
       </Link>
