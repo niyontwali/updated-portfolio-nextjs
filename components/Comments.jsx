@@ -24,7 +24,7 @@ const Comments = ({ slug }) => {
             <div key={index} className="border-b border-gray-100 mb-4 pb-4">
               <p className="mb-4">
                 <span className="font-semibold">{comment.name}</span> on{" "}
-                {moment(comment.createdAt).format("MMM DD, YYYY")}
+                {moment(comment.createdAt).format("MMM DD, YYYY at ")}
               </p>
               <p className="whitespace-pre-line text-gray-600 dark:text-gray-300 w-full">
                 {parse(comment.comment)}
