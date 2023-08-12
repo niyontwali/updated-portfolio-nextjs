@@ -19,6 +19,7 @@ import {
   SiSequelize,
   SiSupabase,
   SiTailwindcss,
+  SiFlutter
 } from "react-icons/si";
 import { RiReactjsLine } from "react-icons/ri";
 import { BsBootstrapFill } from "react-icons/bs";
