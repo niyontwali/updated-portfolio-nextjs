@@ -6,6 +6,7 @@ import {
   FaHtml5,
   FaNodeJs,
   FaReact,
+  FaPhp 
 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import {
